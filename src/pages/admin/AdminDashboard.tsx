@@ -161,7 +161,7 @@ const AdminDashboard = () => {
       icon: Plus,
       href: "/admin/add-service",
       gradient: "from-blue-500 to-blue-600",
-      shadowColor: "shadow-blue-200",
+      shadowColor: "shadow-primary",
       iconBg: "bg-white/20",
     },
     {
@@ -170,7 +170,7 @@ const AdminDashboard = () => {
       icon: UserPlus,
       href: "/admin/add-category",
       gradient: "from-emerald-500 to-emerald-600",
-      shadowColor: "shadow-emerald-200",
+      shadowColor: "shadow-accent",
       iconBg: "bg-white/20",
     },
     {
@@ -179,7 +179,7 @@ const AdminDashboard = () => {
       icon: Settings,
       href: "/admin/site-settings",
       gradient: "from-purple-500 to-purple-600",
-      shadowColor: "shadow-purple-200",
+      shadowColor: "shadow-secondary",
       iconBg: "bg-white/20",
     },
     {
@@ -188,7 +188,7 @@ const AdminDashboard = () => {
       icon: Globe,
       href: "/admin/sitemap",
       gradient: "from-orange-500 to-orange-600",
-      shadowColor: "shadow-orange-200",
+      shadowColor: "shadow-accent",
       iconBg: "bg-white/20",
     },
     {
@@ -197,7 +197,7 @@ const AdminDashboard = () => {
       icon: ClipboardList,
       href: "/admin-category-leads",
       gradient: "from-violet-500 to-violet-600",
-      shadowColor: "shadow-violet-200",
+      shadowColor: "shadow-secondary",
       iconBg: "bg-white/20",
     },
     {
@@ -206,7 +206,7 @@ const AdminDashboard = () => {
       icon: FileText,
       href: "/admin-service-leads",
       gradient: "from-rose-500 to-rose-600",
-      shadowColor: "shadow-rose-200",
+      shadowColor: "shadow-accent",
       iconBg: "bg-white/20",
     },
     {
@@ -215,7 +215,7 @@ const AdminDashboard = () => {
       icon: Mail,
       href: "/admin/newsletter-subscribers",
       gradient: "from-cyan-500 to-cyan-600",
-      shadowColor: "shadow-cyan-200",
+      shadowColor: "shadow-secondary",
       iconBg: "bg-white/20",
     },
   ];
@@ -228,7 +228,7 @@ const AdminDashboard = () => {
       href: "/admin/users",
       count: stats?.totalUsers,
       gradient: "from-indigo-50 to-indigo-100",
-      iconColor: "text-indigo-600",
+      iconColor: "text-primary",
       iconBg: "bg-indigo-100",
     },
     {
@@ -238,7 +238,7 @@ const AdminDashboard = () => {
       href: "/admin/orders",
       count: stats?.totalOrders,
       gradient: "from-green-50 to-green-100",
-      iconColor: "text-green-600",
+      iconColor: "text-accent",
       iconBg: "bg-green-100",
     },
     {
@@ -248,7 +248,7 @@ const AdminDashboard = () => {
       href: "/admin/services",
       count: stats?.totalServices,
       gradient: "from-yellow-50 to-yellow-100",
-      iconColor: "text-yellow-600",
+      iconColor: "text-accent",
       iconBg: "bg-yellow-100",
     },
     {
@@ -258,7 +258,7 @@ const AdminDashboard = () => {
       href: "/admin/contacts",
       count: stats?.totalContacts,
       gradient: "from-pink-50 to-pink-100",
-      iconColor: "text-pink-600",
+      iconColor: "text-accent",
       iconBg: "bg-pink-100",
     },
     {
@@ -268,7 +268,7 @@ const AdminDashboard = () => {
       href: "/admin-category-leads",
       count: stats?.totalCategoryLeads,
       gradient: "from-violet-50 to-violet-100",
-      iconColor: "text-violet-600",
+      iconColor: "text-secondary",
       iconBg: "bg-violet-100",
     },
     {
@@ -278,7 +278,7 @@ const AdminDashboard = () => {
       href: "/admin-service-leads",
       count: stats?.totalServiceLeads,
       gradient: "from-rose-50 to-rose-100",
-      iconColor: "text-rose-600",
+      iconColor: "text-accent",
       iconBg: "bg-rose-100",
     },
     {
@@ -288,7 +288,7 @@ const AdminDashboard = () => {
       href: "/admin/newsletter-subscribers",
       count: undefined,
       gradient: "from-cyan-50 to-cyan-100",
-      iconColor: "text-cyan-600",
+      iconColor: "text-secondary",
       iconBg: "bg-cyan-100",
     },
   ];

@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import nodemailer from "npm:nodemailer@6.9.7";
 
@@ -41,15 +40,18 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Create transporter using Gmail
     const transporter = nodemailer.createTransporter({
-      service: 'gmail',
+      service: "gmail",
       auth: {
-        user: 'vizibly3@gmail.com',
-        pass: 'ibkh fupf fouc ghem'
-      }
+        user: "vizibly3@gmail.com",
+        pass: "ibkh fupf fouc ghem",
+      },
     });
 
     // Calculate total items
-    const totalItems = orderData.items.reduce((sum, item) => sum + item.quantity, 0);
+    const totalItems = orderData.items.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
 
     // Create HTML email content
     const htmlContent = `
@@ -60,16 +62,16 @@ const handler = async (req: Request): Promise<Response> => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Order Confirmation</title>
         <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #1E3932; }
           .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #0056b3, #67b2e8); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-          .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
-          .order-details { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; }
-          .item { border-bottom: 1px solid #eee; padding: 15px 0; }
+          .header { background: linear-gradient(135deg, #00704A, #1E3932); color: #FFFFFF; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { background: #D4E9E2; padding: 30px; border-radius: 0 0 10px 10px; }
+          .order-details { background: #FFFFFF; padding: 20px; border-radius: 8px; margin: 20px 0; }
+          .item { border-bottom: 1px solid #00704A; padding: 15px 0; }
           .item:last-child { border-bottom: none; }
-          .total { font-size: 18px; font-weight: bold; color: #0056b3; text-align: right; margin-top: 20px; }
-          .contact-info { background: #e8f4fd; padding: 20px; border-radius: 8px; margin-top: 20px; }
-          .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
+          .total { font-size: 18px; font-weight: bold; color: #00704A; text-align: right; margin-top: 20px; }
+          .contact-info { background: #D4E9E2; padding: 20px; border-radius: 8px; margin-top: 20px; }
+          .footer { text-align: center; margin-top: 30px; color: #1E3932; font-size: 14px; }
         </style>
       </head>
       <body>
@@ -84,18 +86,26 @@ const handler = async (req: Request): Promise<Response> => {
             <p>We're excited to confirm that we've received your order. Our team will be in touch soon to schedule your service.</p>
             
             <div class="order-details">
-              <h3 style="color: #0056b3; margin-top: 0;">Order Details</h3>
+              <h3 style="color: #00704A; margin-top: 0;">Order Details</h3>
               <p><strong>Order ID:</strong> ${orderData.id}</p>
               <p><strong>Total Items:</strong> ${totalItems}</p>
-              <p><strong>Payment Status:</strong> ${orderData.payment_status}</p>
+              <p><strong>Payment Status:</strong> ${
+                orderData.payment_status
+              }</p>
               
               <h4>Services Ordered:</h4>
-              ${orderData.items.map(item => `
+              ${orderData.items
+                .map(
+                  (item) => `
                 <div class="item">
                   <strong>${item.service_title}</strong><br>
-                  Quantity: ${item.quantity} × $${item.service_price.toFixed(2)} = $${(item.quantity * item.service_price).toFixed(2)}
+                  Quantity: ${item.quantity} × $${item.service_price.toFixed(
+                    2
+                  )} = $${(item.quantity * item.service_price).toFixed(2)}
                 </div>
-              `).join('')}
+              `
+                )
+                .join("")}
               
               <div class="total">
                 Total Amount: $${orderData.total_amount.toFixed(2)}
@@ -103,7 +113,7 @@ const handler = async (req: Request): Promise<Response> => {
             </div>
             
             <div class="contact-info">
-              <h3 style="color: #0056b3; margin-top: 0;">Service Address</h3>
+              <h3 style="color: #00704A; margin-top: 0;">Service Address</h3>
               <p>
                 ${orderData.address}<br>
                 ${orderData.city}, ${orderData.state} ${orderData.zip_code}
@@ -127,10 +137,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send email regardless of payment status (for testing mode)
     const mailOptions = {
-      from: 'OnAssist <vizibly3@gmail.com>',
+      from: "OnAssist <vizibly3@gmail.com>",
       to: orderData.email,
       subject: `Order Confirmation - ${orderData.id}`,
-      html: htmlContent
+      html: htmlContent,
     };
 
     console.log("Sending email to:", orderData.email);
@@ -138,10 +148,10 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Email sent successfully:", result.messageId);
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
+      JSON.stringify({
+        success: true,
         messageId: result.messageId,
-        message: "Order confirmation email sent successfully" 
+        message: "Order confirmation email sent successfully",
       }),
       {
         status: 200,
@@ -154,9 +164,9 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-order-confirmation function:", error);
     return new Response(
-      JSON.stringify({ 
+      JSON.stringify({
         error: error.message,
-        success: false 
+        success: false,
       }),
       {
         status: 500,

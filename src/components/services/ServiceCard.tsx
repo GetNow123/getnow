@@ -1,25 +1,35 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Star, ArrowRight, ExternalLink, ShoppingCart } from 'lucide-react';
-import { Service } from '@/hooks/useServices';
-import { useCart } from '@/contexts/CartContext';
-import { useToast } from '@/hooks/use-toast';
+import {
+  Clock,
+  Star,
+  ArrowRight,
+  ExternalLink,
+  ShoppingCart,
+} from "lucide-react";
+import { Service } from "@/hooks/useServices";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ServiceCardProps {
   service: Service;
   linkPath?: string;
+  addToCartButtonClass?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ service, linkPath }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  service,
+  linkPath,
+  addToCartButtonClass,
+}) => {
   const defaultLinkPath = `/service/${service.slug}`;
   const finalLinkPath = linkPath || defaultLinkPath;
   const { addToCart } = useCart();
   const { toast } = useToast();
-  
+
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -31,13 +41,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, linkPath }) => {
   };
 
   return (
-    <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-white overflow-hidden h-full relative hover:-translate-y-2">
+    <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-gradient-to-br from-[#E6F4EF] to-white/80 overflow-hidden h-full relative hover:-translate-y-2 rounded-2xl border-[#E6F4EF]">
       <Link to={finalLinkPath} className="block">
         <div className="relative overflow-hidden">
-          <img 
-            src={service.image_url} 
+          <img
+            src={service.image_url}
             alt={service.title}
-            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
+            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer rounded-t-2xl"
           />
           {service.popular && (
             <Badge className="absolute top-3 left-3 bg-yellow-500 text-yellow-900 border-0 shadow-lg">
@@ -49,35 +59,39 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, linkPath }) => {
             <ArrowRight className="w-4 h-4 text-onassist-primary" />
           </div>
         </div>
-        
-        <CardContent className="p-6 flex flex-col h-full">
+
+        <CardContent className="p-7 flex flex-col h-full bg-transparent">
           <div className="flex-1">
-            <h3 className="font-bold text-xl mb-3 group-hover:text-onassist-primary transition-colors leading-tight">
+            <h3 className="font-bold text-xl mb-3 group-hover:text-[#00704A] transition-colors leading-tight text-[#00704A]">
               {service.title}
             </h3>
-            <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+            <p className="text-[#00704A]/80 mb-4 line-clamp-3 leading-relaxed">
               {service.description}
             </p>
           </div>
-          
+
           <div className="space-y-4">
             <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center gap-2 text-gray-500">
+              <div className="flex items-center gap-2 text-[#00704A]/70">
                 <Clock className="w-4 h-4" />
                 <span>{service.duration}</span>
               </div>
-              <div className="text-2xl font-bold text-onassist-primary">
+              <div className="text-2xl font-bold text-[#00704A]">
                 ${service.price}
               </div>
             </div>
-            
+
             <div className="grid grid-cols-1 gap-2">
-              <Button 
+              <Button
                 onClick={handleAddToCart}
-                className="w-full bg-onassist-primary hover:bg-onassist-dark text-white font-semibold pointer-events-auto transition-all duration-300 hover:shadow-lg"
-                size="sm"
+                className={
+                  addToCartButtonClass
+                    ? addToCartButtonClass
+                    : "w-full bg-[#00704A] hover:bg-[#005f3a] text-white font-bold text-lg rounded-xl py-3 border-2 border-[#FFD700] shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                }
+                size="lg"
               >
-                <ShoppingCart className="w-4 h-4 mr-2" />
+                <ShoppingCart className="w-5 h-5 mr-2 text-[#FFD700]" />
                 Add to Cart - ${service.price}
               </Button>
             </div>

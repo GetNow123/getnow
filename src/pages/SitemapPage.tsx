@@ -1,9 +1,8 @@
-
-import React, { useEffect, useState } from 'react';
-import { generateSitemapXML } from '@/utils/sitemapGenerator';
+import React, { useEffect, useState } from "react";
+import { generateSitemapXML } from "@/utils/sitemapGenerator";
 
 const SitemapPage = () => {
-  const [xmlContent, setXmlContent] = useState<string>('');
+  const [xmlContent, setXmlContent] = useState<string>("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -12,8 +11,10 @@ const SitemapPage = () => {
         const xmlContent = await generateSitemapXML();
         setXmlContent(xmlContent);
       } catch (error) {
-        console.error('Error generating sitemap:', error);
-        setXmlContent('<?xml version="1.0" encoding="UTF-8"?><error>Failed to generate sitemap</error>');
+        console.error("Error generating sitemap:", error);
+        setXmlContent(
+          '<?xml version="1.0" encoding="UTF-8"?><error>Failed to generate sitemap</error>'
+        );
       } finally {
         setIsLoading(false);
       }
@@ -27,14 +28,16 @@ const SitemapPage = () => {
   }
 
   return (
-    <pre style={{ 
-      whiteSpace: 'pre-wrap', 
-      fontFamily: 'monospace',
-      fontSize: '12px',
-      padding: '20px',
-      backgroundColor: '#f5f5f5',
-      overflow: 'auto'
-    }}>
+    <pre
+      style={{
+        whiteSpace: "pre-wrap",
+        fontFamily: "monospace",
+        fontSize: "12px",
+        padding: "20px",
+        backgroundColor: "#D4E9E2",
+        overflow: "auto",
+      }}
+    >
       {xmlContent}
     </pre>
   );
