@@ -265,7 +265,7 @@ const CategoryPage = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div className="relative bg-[#00704A] text-white py-14 overflow-hidden shadow-2xl">
+      <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white py-14 overflow-hidden shadow-2xl">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -296,7 +296,7 @@ const CategoryPage = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
                 <Button
                   size="lg"
-                  className="bg-white text-[#00704A] hover:bg-[#E6F4EF] text-lg px-10 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 font-semibold border-2 border-[#FFD700]"
+                  className="bg-white text-[#1A2238] hover:bg-[#F4F6FB] text-lg px-10 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 font-semibold border-2 border-[#FFD700]"
                   onClick={() =>
                     window.open(`tel:${siteConfig.contactPhone}`, "_self")
                   }
@@ -306,7 +306,7 @@ const CategoryPage = () => {
                 </Button>
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-[#FFD700] to-yellow-400 text-[#00704A] hover:from-yellow-400 hover:to-[#FFD700] border-0 text-lg px-10 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 font-semibold"
+                  className="bg-gradient-to-r from-[#FFD700] to-yellow-400 text-[#1A2238] hover:from-yellow-400 hover:to-[#FFD700] border-0 text-lg px-10 py-6 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 font-semibold"
                   onClick={() => window.open("/contact", "_self")}
                 >
                   <MessageCircle
@@ -333,16 +333,16 @@ const CategoryPage = () => {
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-2xl p-6 border-2 border-[#E6F4EF] shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center"
+                    className="bg-white rounded-2xl p-6 border-2 border-[#F4F6FB] shadow-xl hover:scale-105 transition-transform duration-300 flex flex-col items-center"
                   >
                     <item.icon
                       className="w-10 h-10 mb-2"
                       style={{ color: GOLD }}
                     />
-                    <div className="text-base font-semibold text-[#00704A]">
+                    <div className="text-base font-semibold text-[#1A2238]">
                       {item.label}
                     </div>
-                    <div className="text-xs opacity-80 text-[#00704A]">
+                    <div className="text-xs opacity-80 text-[#1A2238]">
                       {item.value}
                     </div>
                   </div>
@@ -356,8 +356,8 @@ const CategoryPage = () => {
             {/* Right: Lead Generation Form */}
             <div className="relative flex justify-center items-center mt-16 lg:mt-0">
               <div className="absolute inset-0 blur-xl bg-gradient-to-br from-[#FFD700]/10 via-[#E6F4EF]/30 to-white/30 rounded-3xl z-0"></div>
-              <div className="relative bg-white p-14 rounded-3xl shadow-2xl border-2 border-[#E6F4EF] max-w-xl w-full flex flex-col justify-center min-h-[560px] lg:ml-0 lg:mr-4">
-                <h2 className="text-3xl font-extrabold mb-6 text-center text-[#00704A] drop-shadow">
+              <div className="relative bg-white p-14 rounded-3xl shadow-2xl border-2 border-[#F4F6FB] max-w-xl w-full flex flex-col justify-center min-h-[560px] lg:ml-0 lg:mr-4">
+                <h2 className="text-3xl font-extrabold mb-6 text-center text-[#1A2238] drop-shadow">
                   Request a Service
                 </h2>
                 <form
@@ -367,7 +367,7 @@ const CategoryPage = () => {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="name"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <Users className="w-5 h-5" style={{ color: GOLD }} /> Name
                     </label>
@@ -379,8 +379,8 @@ const CategoryPage = () => {
                       onChange={handleInputChange}
                       placeholder="Full Name"
                       className={`p-3 rounded-xl border ${
-                        errors.name ? "border-red-500" : "border-[#E6F4EF]"
-                      } focus:ring-2 focus:ring-[#00704A] focus:border-[#00704A] transition bg-[#F8FCFA]`}
+                        errors.name ? "border-red-500" : "border-[#F4F6FB]"
+                      } focus:ring-2 focus:ring-[#1A2238] focus:border-[#1A2238] transition bg-[#F8FCFA]`}
                       required
                     />
                     {errors.name && (
@@ -393,7 +393,7 @@ const CategoryPage = () => {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="phone"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <Phone className="w-5 h-5" style={{ color: GOLD }} />{" "}
                       Phone
@@ -406,8 +406,8 @@ const CategoryPage = () => {
                       onChange={handleInputChange}
                       placeholder="+1 234 567 8900 (with country code)"
                       className={`p-3 rounded-xl border ${
-                        errors.phone ? "border-red-500" : "border-[#E6F4EF]"
-                      } focus:ring-2 focus:ring-[#00704A] focus:border-[#00704A] transition bg-[#F8FCFA]`}
+                        errors.phone ? "border-red-500" : "border-[#F4F6FB]"
+                      } focus:ring-2 focus:ring-[#1A2238] focus:border-[#1A2238] transition bg-[#F8FCFA]`}
                       required
                     />
                     {errors.phone && (
@@ -420,7 +420,7 @@ const CategoryPage = () => {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="email"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <MessageCircle
                         className="w-5 h-5"
@@ -436,8 +436,8 @@ const CategoryPage = () => {
                       onChange={handleInputChange}
                       placeholder="Email Address"
                       className={`p-3 rounded-xl border ${
-                        errors.email ? "border-red-500" : "border-[#E6F4EF]"
-                      } focus:ring-2 focus:ring-[#00704A] focus:border-[#00704A] transition bg-[#F8FCFA]`}
+                        errors.email ? "border-red-500" : "border-[#F4F6FB]"
+                      } focus:ring-2 focus:ring-[#1A2238] focus:border-[#1A2238] transition bg-[#F8FCFA]`}
                       required
                     />
                     {errors.email && (
@@ -450,7 +450,7 @@ const CategoryPage = () => {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="address"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <Shield className="w-5 h-5" style={{ color: GOLD }} />{" "}
                       Address
@@ -462,8 +462,8 @@ const CategoryPage = () => {
                       onChange={handleInputChange}
                       placeholder="Your Address"
                       className={`p-3 rounded-xl border ${
-                        errors.address ? "border-red-500" : "border-[#E6F4EF]"
-                      } focus:ring-2 focus:ring-[#00704A] focus:border-[#00704A] transition bg-[#F8FCFA]`}
+                        errors.address ? "border-red-500" : "border-[#F4F6FB]"
+                      } focus:ring-2 focus:ring-[#1A2238] focus:border-[#1A2238] transition bg-[#F8FCFA]`}
                       rows={2}
                       required
                     />
@@ -477,7 +477,7 @@ const CategoryPage = () => {
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="category"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <Award className="w-5 h-5" style={{ color: GOLD }} />{" "}
                       Service Category
@@ -488,13 +488,13 @@ const CategoryPage = () => {
                       id="category"
                       value={categoryTitle}
                       readOnly
-                      className="p-3 rounded-xl border border-[#E6F4EF] bg-[#F8FCFA] text-[#00704A]"
+                      className="p-3 rounded-xl border border-[#F4F6FB] bg-[#F8FCFA] text-[#1A2238]"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label
                       htmlFor="preferredTime"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <Zap className="w-5 h-5" style={{ color: GOLD }} />{" "}
                       Preferred Date/Time
@@ -508,8 +508,8 @@ const CategoryPage = () => {
                       className={`p-3 rounded-xl border ${
                         errors.preferredTime
                           ? "border-red-500"
-                          : "border-[#E6F4EF]"
-                      } focus:ring-2 focus:ring-[#00704A] focus:border-[#00704A] transition bg-[#F8FCFA]`}
+                          : "border-[#F4F6FB]"
+                      } focus:ring-2 focus:ring-[#1A2238] focus:border-[#1A2238] transition bg-[#F8FCFA]`}
                       required
                     />
                     {errors.preferredTime && (
@@ -522,7 +522,7 @@ const CategoryPage = () => {
                   <div className="flex flex-col gap-2 md:col-span-2">
                     <label
                       htmlFor="message"
-                      className="font-semibold text-[#00704A] flex items-center gap-2"
+                      className="font-semibold text-[#1A2238] flex items-center gap-2"
                     >
                       <MessageCircle
                         className="w-5 h-5"
@@ -536,7 +536,7 @@ const CategoryPage = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Message / Description"
-                      className="p-3 rounded-xl border border-[#E6F4EF] focus:ring-2 focus:ring-[#00704A] focus:border-[#00704A] transition bg-[#F8FCFA]"
+                      className="p-3 rounded-xl border border-[#F4F6FB] focus:ring-2 focus:ring-[#1A2238] focus:border-[#1A2238] transition bg-[#F8FCFA]"
                       rows={4}
                     />
                   </div>
@@ -544,9 +544,9 @@ const CategoryPage = () => {
                     <input
                       type="checkbox"
                       required
-                      className="w-5 h-5 accent-[#00704A]"
+                      className="w-5 h-5 accent-[#1A2238]"
                     />
-                    <span className="text-sm text-[#00704A]">
+                    <span className="text-sm text-[#1A2238]">
                       I consent to the processing of my data for service request
                       purposes.
                     </span>
@@ -555,7 +555,7 @@ const CategoryPage = () => {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="w-full bg-[#00704A] hover:bg-[#005f3a] text-white font-bold text-lg shadow-xl py-4 mt-2 md:col-span-2 disabled:opacity-50 disabled:cursor-not-allowed border-0"
+                    className="w-full bg-[#1A2238] hover:bg-[#151d2f] text-white font-bold text-lg shadow-xl py-4 mt-2 md:col-span-2 disabled:opacity-50 disabled:cursor-not-allowed border-0"
                   >
                     {isSubmitting ? "Submitting..." : "Submit Request"}
                   </Button>
@@ -572,16 +572,16 @@ const CategoryPage = () => {
           <Link to="/services">
             <Button
               variant="ghost"
-              className="mb-6 hover:bg-[#E6F4EF] text-[#00704A] font-semibold"
+              className="mb-6 hover:bg-[#F4F6FB] text-[#1A2238] font-semibold"
             >
               <ArrowLeft className="w-4 h-4 mr-2" style={{ color: GOLD }} />
               Back to All Services
             </Button>
           </Link>
-          <h2 className="text-4xl font-extrabold mb-4 text-[#00704A]">
+          <h2 className="text-4xl font-extrabold mb-4 text-[#1A2238]">
             Available {categoryTitle} Services
           </h2>
-          <p className="text-xl text-[#00704A]/80">
+          <p className="text-xl text-[#1A2238]/80">
             Choose from our comprehensive range of professional services
           </p>
         </div>
@@ -589,16 +589,12 @@ const CategoryPage = () => {
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {services.map((service) => (
-                <div className="bg-[#E6F4EF] rounded-2xl shadow-lg p-0 flex flex-col h-full border-2 border-[#E6F4EF]">
-                  <ServiceCard
-                    key={service.id}
-                    service={service}
-                    addToCartButtonClass="bg-[#00704A] hover:bg-[#005f3a] text-white font-semibold border-2 border-[#FFD700]"
-                  />
+                <div className="rounded-2xl shadow-lg p-0 flex flex-col h-full border-0">
+                  <ServiceCard key={service.id} service={service} />
                 </div>
               ))}
             </div>
-            <div className="bg-[#00704A] rounded-3xl p-12 text-white text-center shadow-xl">
+            <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white rounded-3xl p-12 shadow-xl">
               <h3 className="text-3xl font-bold mb-6">
                 What's Included in Every Service
               </h3>
@@ -622,16 +618,16 @@ const CategoryPage = () => {
           </>
         ) : (
           <div className="text-center py-16">
-            <h3 className="text-2xl font-semibold mb-4 text-[#00704A]">
+            <h3 className="text-2xl font-semibold mb-4 text-[#1A2238]">
               No services found
             </h3>
-            <p className="text-[#00704A]/80 mb-8 text-lg">
+            <p className="text-[#1A2238]/80 mb-8 text-lg">
               There are currently no services in this category.
             </p>
             <Link to="/services">
               <Button
                 size="lg"
-                className="bg-[#00704A] text-white font-bold border-2 border-[#FFD700] hover:bg-[#FFD700] hover:text-[#00704A]"
+                className="bg-onassist-accent hover:bg-onassist-accent/90 text-white font-medium"
               >
                 Browse All Services
               </Button>
@@ -641,13 +637,13 @@ const CategoryPage = () => {
       </div>
 
       {/* How It Works */}
-      <div className="py-20 bg-[#E6F4EF]">
+      <div className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-14">
-            <h2 className="text-4xl font-extrabold mb-4 text-[#00704A]">
+            <h2 className="text-4xl font-extrabold mb-4 text-[#1A2238]">
               How It Works
             </h2>
-            <p className="text-lg text-[#00704A]/80">
+            <p className="text-lg text-[#1A2238]/80">
               Our simple process ensures you get the help you need, fast.
             </p>
           </div>
@@ -671,13 +667,13 @@ const CategoryPage = () => {
             ].map((step, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-8 shadow-xl flex flex-col items-center hover:scale-105 transition-transform duration-300 border-2 border-[#E6F4EF]"
+                className="bg-white rounded-2xl p-8 shadow-xl flex flex-col items-center hover:scale-105 transition-transform duration-300 border-2 border-[#F4F6FB]"
               >
                 <step.icon className="w-12 h-12 mb-4" style={{ color: GOLD }} />
-                <h3 className="text-xl font-bold mb-2 text-[#00704A]">
+                <h3 className="text-xl font-bold mb-2 text-[#1A2238]">
                   {step.title}
                 </h3>
-                <p className="text-[#00704A]/80">{step.desc}</p>
+                <p className="text-[#1A2238]/80">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -685,50 +681,50 @@ const CategoryPage = () => {
       </div>
 
       {/* Nationwide Service Coverage */}
-      <div className="py-20 bg-gradient-to-br from-[#E6F4EF] via-white to-[#FFD700]/10">
+      <div className="py-20">
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-1 mb-10 lg:mb-0">
-            <h2 className="text-4xl font-extrabold mb-4 text-[#00704A]">
+            <h2 className="text-4xl font-extrabold mb-4 text-[#1A2238]">
               Nationwide Service Coverage
             </h2>
-            <p className="text-xl text-[#00704A]/80 mb-8 max-w-lg">
+            <p className="text-xl text-[#1A2238]/80 mb-8 max-w-lg">
               No matter where you are, our certified experts are available to
               provide prompt and reliable services in your area. We cover all
               major cities and towns, ensuring you get the help you need, when
               you need it.
             </p>
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#E6F4EF]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#F4F6FB]">
                 <Users className="w-8 h-8 mb-2" style={{ color: GOLD }} />
-                <div className="font-bold text-lg text-[#00704A]">
+                <div className="font-bold text-lg text-[#1A2238]">
                   {dynamicConfig.cities_covered_stat} Cities
                 </div>
-                <div className="text-[#00704A]/80 text-sm">
+                <div className="text-[#1A2238]/80 text-sm">
                   Served Nationwide
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#E6F4EF]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#F4F6FB]">
                 <Shield className="w-8 h-8 mb-2" style={{ color: GOLD }} />
-                <div className="font-bold text-lg text-[#00704A]">
+                <div className="font-bold text-lg text-[#1A2238]">
                   Certified Experts
                 </div>
-                <div className="text-[#00704A]/80 text-sm">
+                <div className="text-[#1A2238]/80 text-sm">
                   Background Checked
                 </div>
               </div>
-              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#E6F4EF]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#F4F6FB]">
                 <Zap className="w-8 h-8 mb-2" style={{ color: GOLD }} />
-                <div className="font-bold text-lg text-[#00704A]">
+                <div className="font-bold text-lg text-[#1A2238]">
                   Same Day Service
                 </div>
-                <div className="text-[#00704A]/80 text-sm">Fast Response</div>
+                <div className="text-[#1A2238]/80 text-sm">Fast Response</div>
               </div>
-              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#E6F4EF]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center border-2 border-[#F4F6FB]">
                 <Star className="w-8 h-8 mb-2" style={{ color: GOLD }} />
-                <div className="font-bold text-lg text-[#00704A]">
+                <div className="font-bold text-lg text-[#1A2238]">
                   {dynamicConfig.customer_satisfaction_stat}
                 </div>
-                <div className="text-[#00704A]/80 text-sm">
+                <div className="text-[#1A2238]/80 text-sm">
                   Customer Satisfaction
                 </div>
               </div>
@@ -739,14 +735,14 @@ const CategoryPage = () => {
               <img
                 src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
                 alt="Nationwide Service Coverage"
-                className="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-[#E6F4EF]"
+                className="w-full h-96 object-cover rounded-3xl shadow-2xl border-4 border-[#F4F6FB]"
               />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="bg-gradient-to-br from-[#00704A]/10 to-[#FFD700]/10 w-full h-full rounded-3xl"></div>
+                <div className="bg-gradient-to-br from-[#1A2238]/10 to-[#FFD700]/10 w-full h-full rounded-3xl"></div>
               </div>
-              <div className="absolute bottom-6 right-6 bg-white rounded-xl px-6 py-3 shadow-lg flex items-center gap-2 border-2 border-[#E6F4EF]">
+              <div className="absolute bottom-6 right-6 bg-white rounded-xl px-6 py-3 shadow-lg flex items-center gap-2 border-2 border-[#F4F6FB]">
                 <CheckCircle className="w-6 h-6" style={{ color: GOLD }} />
-                <span className="font-semibold text-[#00704A]">
+                <span className="font-semibold text-[#1A2238]">
                   Service Near You
                 </span>
               </div>
@@ -758,14 +754,14 @@ const CategoryPage = () => {
       {/* Testimonials Section */}
       <div className="bg-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-extrabold mb-10 text-[#00704A]">
+          <h2 className="text-4xl font-extrabold mb-10 text-[#1A2238]">
             What Our Customers Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {randomTestimonials.map((testimonial) => (
               <Card
                 key={testimonial.id}
-                className="p-8 shadow-xl hover:shadow-2xl transition flex flex-col items-center border-2 border-[#E6F4EF]"
+                className="p-8 shadow-xl hover:shadow-2xl transition flex flex-col items-center border-2 border-[#F4F6FB]"
               >
                 <img
                   src={testimonial.image}
@@ -782,13 +778,13 @@ const CategoryPage = () => {
                       />
                     ))}
                   </div>
-                  <p className="text-[#00704A] mb-4 italic">
+                  <p className="text-[#1A2238] mb-4 italic">
                     "{testimonial.text}"
                   </p>
-                  <h3 className="font-bold text-lg text-[#00704A]">
+                  <h3 className="font-bold text-lg text-[#1A2238]">
                     {testimonial.name}
                   </h3>
-                  <div className="text-sm text-[#00704A]/70">
+                  <div className="text-sm text-[#1A2238]/70">
                     {testimonial.location} &middot; {testimonial.service}
                   </div>
                 </CardContent>
@@ -799,13 +795,13 @@ const CategoryPage = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="py-20 bg-gradient-to-r from-[#E6F4EF] to-[#FFD700]/10">
+      <div className="py-20 bg-gradient-to-r from-[#F4F6FB] to-[#FFD700]/10">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4 text-[#00704A]">
+            <h2 className="text-4xl font-extrabold mb-4 text-[#1A2238]">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-[#00704A]/80">
+            <p className="text-lg text-[#1A2238]/80">
               Answers to common questions about our{" "}
               {categoryTitle.toLowerCase()} services.
             </p>
@@ -829,8 +825,8 @@ const CategoryPage = () => {
                 key={idx}
                 className="bg-white rounded-xl shadow p-6 text-left border-l-4 border-[#FFD700]"
               >
-                <div className="font-bold text-[#00704A] mb-2">Q: {faq.q}</div>
-                <div className="text-[#00704A]/80">A: {faq.a}</div>
+                <div className="font-bold text-[#1A2238] mb-2">Q: {faq.q}</div>
+                <div className="text-[#1A2238]/80">A: {faq.a}</div>
               </div>
             ))}
           </div>
@@ -838,7 +834,7 @@ const CategoryPage = () => {
       </div>
 
       {/* Call to Action Banner */}
-      <div className="py-16 bg-[#00704A] text-white text-center">
+      <div className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-extrabold mb-4">
             Ready to Experience the Best {categoryTitle} Services?
@@ -849,7 +845,7 @@ const CategoryPage = () => {
           </p>
           <Button
             size="lg"
-            className="bg-white text-[#00704A] font-bold text-lg px-10 py-5 shadow-xl hover:bg-[#E6F4EF] border-2 border-[#FFD700]"
+            className="bg-white text-[#1A2238] font-bold text-lg px-10 py-5 shadow-xl hover:bg-[#F4F6FB] border-2 border-[#FFD700]"
             onClick={() => window.open("/contact", "_self")}
           >
             Get Started

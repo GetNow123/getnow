@@ -36,16 +36,16 @@ const NeedHelpBox: React.FC<NeedHelpBoxProps> = ({ serviceTitle }) => {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto shadow-2xl border-0 bg-[#00704A] text-white rounded-3xl flex flex-col items-center">
+    <Card className="w-full max-w-md mx-auto shadow-2xl border-0 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white rounded-3xl flex flex-col items-center">
       <CardContent className="p-10 flex flex-col items-center">
         <div className="flex flex-col items-center mb-6">
-          <div className="w-16 h-16 bg-gradient-to-br from-[#FFD700] to-[#00704A] rounded-full flex items-center justify-center shadow-lg mb-3">
+          <div className="w-16 h-16 bg-gradient-to-br from-[#a21caf] to-[#fb7185] rounded-full flex items-center justify-center shadow-lg mb-3">
             <Headphones className="w-8 h-8 text-white" />
           </div>
           <h3 className="text-2xl font-bold mb-1 text-white text-center">
             Need Help?
           </h3>
-          <p className="text-[#FFD700] font-semibold text-base text-center mt-2 mb-1">
+          <p className="text-[#fb7185] font-semibold text-base text-center mt-2 mb-1">
             Our experts are here for you 24/7
           </p>
           <p className="text-white/90 text-center text-base mb-4">
@@ -55,23 +55,23 @@ const NeedHelpBox: React.FC<NeedHelpBoxProps> = ({ serviceTitle }) => {
         <div className="space-y-4 w-full mb-6">
           <Button
             onClick={handleCall}
-            className="w-full bg-[#FFD700] text-[#00704A] font-bold text-base px-6 py-3 rounded-xl shadow transition-all duration-300 flex items-center justify-center hover:bg-[#e6c200] border-0"
+            className="w-full bg-[#a21caf] text-white font-bold text-base px-6 py-3 rounded-xl shadow transition-all duration-300 flex items-center justify-center hover:bg-[#fb7185] border-0"
           >
-            <Phone className="w-5 h-5 mr-2 text-[#00704A]" />
+            <Phone className="w-5 h-5 mr-2 text-white" />
             Call Us
           </Button>
           <Button
             onClick={handleLiveChat}
             variant="outline"
-            className="w-full border-2 border-[#FFD700] bg-white text-[#00704A] font-bold text-base px-6 py-3 rounded-xl transition-all duration-300 flex items-center justify-center hover:border-[#00704A] hover:text-[#FFD700]"
+            className="w-full border-2 border-[#fb7185] bg-white text-[#a21caf] font-bold text-base px-6 py-3 rounded-xl transition-all duration-300 flex items-center justify-center hover:border-[#a21caf] hover:text-[#fb7185]"
           >
-            <MessageCircle className="w-5 h-5 mr-2 text-[#FFD700]" />
+            <MessageCircle className="w-5 h-5 mr-2 text-[#fb7185]" />
             Live Chat
           </Button>
         </div>
         <div className="flex items-center gap-2 mt-2">
-          <CheckCircle className="w-5 h-5 text-[#FFD700]" />
-          <span className="text-xs font-semibold text-[#FFD700]">
+          <CheckCircle className="w-5 h-5 text-[#a21caf]" />
+          <span className="text-xs font-semibold text-[#f5d0fe]">
             100% Satisfaction Guarantee
           </span>
         </div>

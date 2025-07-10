@@ -41,7 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   };
 
   return (
-    <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-gradient-to-br from-[#E6F4EF] to-white/80 overflow-hidden h-full relative hover:-translate-y-2 rounded-2xl border-[#E6F4EF]">
+    <Card className="group hover:shadow-2xl transition-all duration-300 border-0 shadow-lg bg-gradient-to-br from-blue-100 via-blue-50 to-white overflow-hidden h-full relative hover:-translate-y-2 rounded-2xl border-blue-100">
       <Link to={finalLinkPath} className="block">
         <div className="relative overflow-hidden">
           <img
@@ -62,21 +62,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
         <CardContent className="p-7 flex flex-col h-full bg-transparent">
           <div className="flex-1">
-            <h3 className="font-bold text-xl mb-3 group-hover:text-[#00704A] transition-colors leading-tight text-[#00704A]">
+            <h3 className="font-bold text-xl mb-3 group-hover:text-foreground transition-colors leading-tight text-foreground">
               {service.title}
             </h3>
-            <p className="text-[#00704A]/80 mb-4 line-clamp-3 leading-relaxed">
+            <p className="text-foreground/80 mb-4 line-clamp-3 leading-relaxed">
               {service.description}
             </p>
           </div>
 
           <div className="space-y-4">
             <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center gap-2 text-[#00704A]/70">
+              <div className="flex items-center gap-2 text-foreground/70">
                 <Clock className="w-4 h-4" />
                 <span>{service.duration}</span>
               </div>
-              <div className="text-2xl font-bold text-[#00704A]">
+              <div className="text-2xl font-bold text-foreground">
                 ${service.price}
               </div>
             </div>
@@ -87,11 +87,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 className={
                   addToCartButtonClass
                     ? addToCartButtonClass
-                    : "w-full bg-[#00704A] hover:bg-[#005f3a] text-white font-bold text-lg rounded-xl py-3 border-2 border-[#FFD700] shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    : "w-full bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white font-medium text-lg rounded-xl py-3 shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                 }
                 size="lg"
               >
-                <ShoppingCart className="w-5 h-5 mr-2 text-[#FFD700]" />
+                <ShoppingCart className="w-5 h-5 mr-2 text-white" />
                 Add to Cart - ${service.price}
               </Button>
             </div>
