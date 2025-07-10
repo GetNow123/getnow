@@ -139,9 +139,9 @@ const NewHero = () => {
           </div>
 
           {/* Enhanced Visual Section */}
-          <div className="relative">
+          <div className="relative mt-12">
             <div
-              className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/20"
+              className="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/20"
               style={{
                 boxShadow:
                   "0 25px 50px -12px rgba(168, 85, 247, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)",
@@ -149,9 +149,9 @@ const NewHero = () => {
                   "linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)",
               }}
             >
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2">
                 {/* Enhanced Service Cards */}
-                <div className="bg-gradient-to-br from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-2xl p-8 flex flex-col items-start gap-3 shadow-lg border border-purple-400/30 hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-rose-500/30 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-3 shadow-lg border border-purple-400/30 hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-rose-500/30 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-2 w-full">
                   <div className="h-14 w-14 bg-gradient-to-r from-purple-500 to-rose-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <Shield className="h-7 w-7 text-white" />
                   </div>
@@ -161,7 +161,7 @@ const NewHero = () => {
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-rose-500/20 to-purple-500/20 backdrop-blur-md rounded-2xl p-8 flex flex-col items-start gap-3 shadow-lg border border-rose-400/30 hover:bg-gradient-to-br hover:from-rose-500/30 hover:to-purple-500/30 hover:shadow-xl hover:shadow-rose-500/25 transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-rose-500/20 to-purple-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-3 shadow-lg border border-rose-400/30 hover:bg-gradient-to-br hover:from-rose-500/30 hover:to-purple-500/30 hover:shadow-xl hover:shadow-rose-500/25 transition-all duration-300 transform hover:-translate-y-2 w-full">
                   <div className="h-14 w-14 bg-gradient-to-r from-rose-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <Clock className="h-7 w-7 text-white" />
                   </div>
@@ -169,7 +169,7 @@ const NewHero = () => {
                   <p className="text-sm text-gray-300">Same day resolution</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-2xl p-8 flex flex-col items-start gap-3 shadow-lg border border-purple-400/30 hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-rose-500/30 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-3 shadow-lg border border-purple-400/30 hover:bg-gradient-to-br hover:from-purple-500/30 hover:to-rose-500/30 hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:-translate-y-2 w-full">
                   <div className="h-14 w-14 bg-gradient-to-r from-purple-500 to-rose-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <Users className="h-7 w-7 text-white" />
                   </div>
@@ -177,7 +177,7 @@ const NewHero = () => {
                   <p className="text-sm text-gray-300">Certified specialists</p>
                 </div>
 
-                <div className="bg-gradient-to-br from-rose-500/20 to-purple-500/20 backdrop-blur-md rounded-2xl p-8 flex flex-col items-start gap-3 shadow-lg border border-rose-400/30 hover:bg-gradient-to-br hover:from-rose-500/30 hover:to-purple-500/30 hover:shadow-xl hover:shadow-rose-500/25 transition-all duration-300 transform hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-rose-500/20 to-purple-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 flex flex-col items-start gap-3 shadow-lg border border-rose-400/30 hover:bg-gradient-to-br hover:from-rose-500/30 hover:to-purple-500/30 hover:shadow-xl hover:shadow-rose-500/25 transition-all duration-300 transform hover:-translate-y-2 w-full">
                   <div className="h-14 w-14 bg-gradient-to-r from-rose-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <Star className="h-7 w-7 text-white" />
                   </div>
@@ -188,12 +188,12 @@ const NewHero = () => {
                 </div>
               </div>
 
-              {/* Enhanced Floating Elements */}
-              <div className="absolute -top-6 -right-6 bg-gradient-to-r from-purple-500 to-rose-500 text-white px-4 py-2 rounded-full text-sm font-semibold animate-bounce shadow-xl border border-white/20">
+              {/* Enhanced Floating Elements - responsive positioning */}
+              <div className="absolute left-1/2 -top-8 -translate-x-1/2 sm:left-auto sm:top-auto sm:-top-6 sm:-right-6 sm:translate-x-0 bg-gradient-to-r from-purple-500 to-rose-500 text-white px-4 py-2 rounded-full text-sm font-semibold animate-bounce shadow-xl border border-white/20 z-10">
                 <Sparkles className="h-4 w-4 inline mr-2" />
                 Available Now
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-rose-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl border border-white/20">
+              <div className="absolute left-1/2 -bottom-8 -translate-x-1/2 sm:left-auto sm:bottom-auto sm:-bottom-6 sm:-left-6 sm:translate-x-0 bg-gradient-to-r from-rose-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl border border-white/20 z-10">
                 <Zap className="h-4 w-4 inline mr-2" />
                 24/7 Premium Support
               </div>

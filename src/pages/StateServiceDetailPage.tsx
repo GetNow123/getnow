@@ -253,46 +253,52 @@ const StateServiceDetailPage = () => {
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
         {/* Breadcrumb */}
-        <div className="bg-gray-50 border-b">
-          <div className="container mx-auto px-4 py-4">
+        <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-rose-900 text-white border-b border-purple-400/30">
+          <div className="container mx-auto px-4 py-8">
             <Breadcrumb>
-              <BreadcrumbList>
+              <BreadcrumbList className="flex items-center gap-2">
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to="/"
-                      className="flex items-center gap-2 text-gray-600 hover:text-onassist-primary transition-colors"
+                      className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors"
                     >
                       <Home className="w-4 h-4" />
                       Home
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to={`/${country}`}
-                      className="text-gray-600 hover:text-onassist-primary transition-colors"
+                      className="text-gray-200 hover:text-white transition-colors"
                     >
                       United States
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to={`/${country}/${state}`}
-                      className="text-gray-600 hover:text-onassist-primary transition-colors"
+                      className="text-gray-200 hover:text-white transition-colors"
                     >
                       {stateData.name}
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="font-medium text-onassist-primary">
+                  <BreadcrumbPage className="font-medium bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
                     {service.title}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -302,29 +308,21 @@ const StateServiceDetailPage = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="relative py-20 bg-gradient-to-br from-onassist-primary via-blue-700 to-purple-800 text-white overflow-hidden">
-          {/* Animated SVG Waves */}
-          <div className="absolute inset-0 pointer-events-none select-none">
-            <svg
-              className="absolute top-0 left-0 w-full h-32 opacity-30"
-              viewBox="0 0 1440 320"
-            >
-              <path
-                fill="#F8F4FF"
-                fillOpacity="0.1"
-                d="M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,133.3C672,107,768,85,864,101.3C960,117,1056,171,1152,186.7C1248,203,1344,181,1392,170.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-              ></path>
-            </svg>
-            <svg
-              className="absolute bottom-0 left-0 w-full h-32 opacity-20"
-              viewBox="0 0 1440 320"
-            >
-              <path
-                fill="#F8F4FF"
-                fillOpacity="0.08"
-                d="M0,224L48,202.7C96,181,192,139,288,128C384,117,480,139,576,170.7C672,203,768,245,864,229.3C960,213,1056,139,1152,128C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ></path>
-            </svg>
+        <div className="relative py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-rose-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+            <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-rose-500/20 to-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000"></div>
+            <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-rose-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-4000"></div>
+          </div>
+          {/* Geometric Pattern Overlay */}
+          <div className="absolute inset-0 opacity-5">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }}
+            ></div>
           </div>
           <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 flex flex-col items-start justify-center">
@@ -339,7 +337,7 @@ const StateServiceDetailPage = () => {
               <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 mb-6 w-full max-w-2xl">
                 <div className="flex items-center gap-3 mb-4">
                   <Monitor className="w-10 h-10 text-yellow-300" />
-                  <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-yellow-300 via-white to-blue-200 bg-clip-text text-transparent drop-shadow">
+                  <h1 className="text-6xl md:text-8xl font-extrabold bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent drop-shadow">
                     {service.title} <span className="text-white">in</span>{" "}
                     <span className="text-yellow-300">{stateData.name}</span>
                   </h1>
@@ -350,17 +348,19 @@ const StateServiceDetailPage = () => {
                     </Badge>
                   )}
                 </div>
-                <p className="text-xl opacity-90 mb-6 text-white/90">
+                <p className="text-2xl md:text-3xl text-white font-semibold mb-12 leading-relaxed">
                   Professional {service.title} services throughout{" "}
-                  {stateData.name}. Expert technicians serving all cities in{" "}
-                  {stateData.name}.
+                  <span className="text-purple-200 font-bold">
+                    {stateData.name}
+                  </span>
+                  . Expert technicians serving all cities in {stateData.name}.
                 </p>
                 <div className="flex items-center gap-8 text-lg mb-2">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-rose-500/10 px-4 py-3 rounded-xl backdrop-blur-md">
                     <Clock className="w-5 h-5 text-yellow-200" />
                     <span>{service.duration}</span>
                   </div>
-                  <div className="text-3xl font-bold text-yellow-300">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                     ${service.price}
                   </div>
                 </div>
@@ -374,7 +374,7 @@ const StateServiceDetailPage = () => {
                   className="w-full h-80 object-cover rounded-3xl shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-300 bg-white/20"
                   style={{ boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)" }}
                 />
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-onassist-primary to-blue-600 text-white px-6 py-2 rounded-full shadow-lg font-semibold text-lg border-2 border-white/30">
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-rose-600 text-white px-6 py-2 rounded-full shadow-lg font-semibold text-lg border-2 border-white/30">
                   {service.title}
                 </div>
               </div>
@@ -387,13 +387,13 @@ const StateServiceDetailPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Service Details */}
             <div className="lg:col-span-2 space-y-8">
-              <Card className="shadow-2xl border-0 overflow-hidden bg-white/70 backdrop-blur-xl rounded-3xl">
+              <Card className="shadow-2xl border-0 overflow-hidden bg-white rounded-2xl">
                 <CardContent className="p-10 md:p-14">
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-blue-100 via-blue-200 to-blue-50 text-onassist-primary shadow-md">
+                    <div className="p-4 rounded-xl bg-gradient-to-br from-purple-100 to-rose-100 text-purple-700 shadow-md">
                       <Monitor className="w-7 h-7" />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-onassist-primary via-blue-600 to-purple-700 bg-clip-text text-transparent drop-shadow">
+                    <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent drop-shadow">
                       Service Overview in {stateData.name}
                     </h2>
                   </div>
@@ -452,7 +452,7 @@ const StateServiceDetailPage = () => {
               <Card className="shadow-2xl border-0 sticky top-24 bg-white/80 backdrop-blur-xl rounded-3xl">
                 <CardContent className="p-8 md:p-10">
                   <div className="text-center mb-8">
-                    <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-onassist-primary to-blue-600 text-white text-3xl font-extrabold shadow-lg mb-3">
+                    <div className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent text-3xl font-extrabold shadow-lg mb-3">
                       ${service.price}
                     </div>
                     <div className="flex items-center justify-center gap-2 text-lg text-onassist-primary font-semibold mb-2">
@@ -517,7 +517,7 @@ const StateServiceDetailPage = () => {
       <div className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-3 text-onassist-primary drop-shadow">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
               Why Choose Us?
             </h2>
             <p className="text-lg text-gray-600 mb-10">
@@ -568,7 +568,7 @@ const StateServiceDetailPage = () => {
       <div className="py-20 bg-gradient-to-r from-onassist-primary/10 to-blue-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-3 text-onassist-primary drop-shadow">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-3 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
               How It Works
             </h2>
             <p className="text-lg text-gray-600 mb-10">
@@ -630,7 +630,7 @@ const StateServiceDetailPage = () => {
       {/* Service Benefits Section */}
       <div className="py-20 bg-gradient-to-br from-white via-blue-50 to-purple-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-onassist-primary">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-8 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
             Service Benefits
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -674,7 +674,7 @@ const StateServiceDetailPage = () => {
               <Award className="w-5 h-5" />
               <span className="font-medium">Meet Our Experts</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-onassist-primary">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
               Our Top Technicians
             </h2>
             <p className="text-xl text-gray-600">
@@ -729,7 +729,7 @@ const StateServiceDetailPage = () => {
               <Heart className="w-5 h-5" />
               <span className="font-medium">Customer Stories</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-onassist-primary">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
               What Our Customers Say
             </h2>
           </div>

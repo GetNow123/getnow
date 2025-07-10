@@ -14,12 +14,12 @@ const AboutPage = () => {
         />
       </Helmet>
 
-      <div className="bg-gradient-to-r from-onassist-primary to-onassist-dark text-white py-16">
+      <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             About OnAssist
           </h1>
-          <p className="text-xl max-w-3xl opacity-90">
+          <p className="text-xl max-w-3xl text-white/80">
             Professional tech support services delivered by experts who care
             about solving your technology problems.
           </p>
@@ -30,31 +30,35 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <p className="text-gray-600 mb-4">
+              <h2 className="text-3xl font-bold mb-6 text-[#a21caf]">
+                Our Story
+              </h2>
+              <p className="text-[#a21caf]/80 mb-4">
                 Founded in 2020, OnAssist was created with a simple mission: to
                 make technology accessible and stress-free for everyone. We
                 recognized that as technology becomes more integral to our daily
                 lives, the complexity of maintaining and troubleshooting these
                 systems increases.
               </p>
-              <p className="text-gray-600 mb-4">
+              <p className="text-[#a21caf]/80 mb-4">
                 What started as a small team of passionate tech enthusiasts has
                 grown into a nationwide network of certified professionals,
                 ready to solve any tech challenge you might face.
               </p>
-              <p className="text-gray-600">
+              <p className="text-[#a21caf]/80">
                 Our approach combines technical expertise with clear
                 communication, ensuring that you not only get your problem
                 solved but also understand how to prevent similar issues in the
                 future.
               </p>
             </div>
-            <div className="bg-gray-100 rounded-lg p-8">
-              <h3 className="text-2xl font-bold mb-4">Our Values</h3>
+            <div className="bg-[#f5d0fe] rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4 text-[#a21caf]">
+                Our Values
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <div className="bg-onassist-primary rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-[#a21caf] rounded-full p-1 mr-3 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4 text-white"
@@ -70,14 +74,14 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Customer-First Approach</h4>
-                    <p className="text-gray-600">
+                    <p className="text-[#a21caf]/80">
                       We prioritize your needs and ensure every interaction
                       leaves you satisfied and empowered.
                     </p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-onassist-primary rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-[#a21caf] rounded-full p-1 mr-3 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4 text-white"
@@ -93,14 +97,14 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Technical Excellence</h4>
-                    <p className="text-gray-600">
+                    <p className="text-[#a21caf]/80">
                       Our technicians undergo rigorous training and
                       certification to ensure top-quality service.
                     </p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-onassist-primary rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-[#a21caf] rounded-full p-1 mr-3 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4 text-white"
@@ -116,14 +120,14 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Transparent Communication</h4>
-                    <p className="text-gray-600">
+                    <p className="text-[#a21caf]/80">
                       We explain complex issues in simple terms and provide
                       clear pricing with no hidden fees.
                     </p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <div className="bg-onassist-primary rounded-full p-1 mr-3 mt-1">
+                  <div className="bg-[#a21caf] rounded-full p-1 mr-3 mt-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4 text-white"
@@ -139,7 +143,7 @@ const AboutPage = () => {
                   </div>
                   <div>
                     <h4 className="font-bold">Continuous Improvement</h4>
-                    <p className="text-gray-600">
+                    <p className="text-[#a21caf]/80">
                       We constantly update our skills and knowledge to stay
                       ahead of technological advancements.
                     </p>
@@ -151,9 +155,11 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-[#f5d0fe] via-white to-[#f5d0fe]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Team</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[#a21caf]">
+            Our Team
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
@@ -183,7 +189,7 @@ const AboutPage = () => {
             ].map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-sm overflow-hidden"
+                className="bg-white rounded-lg shadow-lg overflow-hidden"
               >
                 <div className="aspect-square">
                   <img
@@ -193,11 +199,13 @@ const AboutPage = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-bold text-xl mb-1">{member.name}</h3>
-                  <p className="text-onassist-primary font-medium mb-3">
+                  <h3 className="font-bold text-xl mb-1 text-[#a21caf]">
+                    {member.name}
+                  </h3>
+                  <p className="text-[#fb7185] font-medium mb-3">
                     {member.position}
                   </p>
-                  <p className="text-gray-600">{member.bio}</p>
+                  <p className="text-[#a21caf]/80">{member.bio}</p>
                 </div>
               </div>
             ))}

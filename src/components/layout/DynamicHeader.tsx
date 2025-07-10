@@ -206,9 +206,9 @@ const DynamicHeader = () => {
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-4">
-              {/* Cart */}
+              {/* Cart - Only show on mobile (lg:hidden) */}
               {!isAdmin && (
-                <Link to="/cart" className="relative group">
+                <Link to="/cart" className="relative group lg:hidden">
                   <Button
                     variant="ghost"
                     size="icon"
@@ -224,33 +224,33 @@ const DynamicHeader = () => {
                 </Link>
               )}
 
-              {/* User Menu */}
-              {user ? (
-                <div className="flex items-center space-x-3">
-                  <Link to={isAdmin ? "/admin/dashboard" : "/profile"}>
+              {/* User Menu (desktop only) */}
+              <div className="hidden lg:flex items-center space-x-3">
+                {user ? (
+                  <>
+                    <Link to={isAdmin ? "/admin/dashboard" : "/profile"}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-gray-700 hover:text-purple-700"
+                      >
+                        {isAdmin ? (
+                          <LayoutDashboard className="w-5 h-5" />
+                        ) : (
+                          <User className="w-5 h-5" />
+                        )}
+                      </Button>
+                    </Link>
                     <Button
                       variant="ghost"
-                      size="icon"
-                      className="text-gray-700 hover:text-purple-700"
+                      size="sm"
+                      onClick={handleSignOut}
+                      className="text-gray-700 hover:text-purple-700 font-medium"
                     >
-                      {isAdmin ? (
-                        <LayoutDashboard className="w-5 h-5" />
-                      ) : (
-                        <User className="w-5 h-5" />
-                      )}
+                      Logout
                     </Button>
-                  </Link>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={handleSignOut}
-                    className="text-gray-700 hover:text-purple-700 font-medium"
-                  >
-                    Logout
-                  </Button>
-                </div>
-              ) : (
-                <div className="flex items-center space-x-3">
+                  </>
+                ) : (
                   <Link to="/auth/login">
                     <Button
                       variant="ghost"
@@ -260,34 +260,42 @@ const DynamicHeader = () => {
                       Login
                     </Button>
                   </Link>
-                  <Link to="/auth/register">
+                )}
+                {/* Call Now Button (at end, after Login) */}
+                {!isAdmin && (
+                  <a
+                    href={`tel:${siteConfig.contactPhone}`}
+                    className="inline-block"
+                  >
                     <Button
                       size="sm"
-                      className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white px-6 py-2 font-semibold shadow-md"
+                      className="bg-gradient-to-r from-[#a21caf] to-[#fb7185] hover:from-[#fb7185] hover:to-[#a21caf] text-white px-6 py-2 font-semibold shadow-md"
                     >
-                      Sign Up
+                      Call Now: {siteConfig.contactPhone}
                     </Button>
-                  </Link>
-                </div>
-              )}
-
-              {/* Mobile Menu Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden text-gray-700 hover:text-purple-700"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? (
-                  <X className="w-5 h-5" />
-                ) : (
-                  <Menu className="w-5 h-5" />
+                  </a>
                 )}
-              </Button>
+              </div>
+
+              {/* Mobile Menu Button and Cart Only (right side) */}
+              <div className="lg:hidden flex items-center space-x-3">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-700 hover:text-purple-700"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  {isMenuOpen ? (
+                    <X className="w-5 h-5" />
+                  ) : (
+                    <Menu className="w-5 h-5" />
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu: Only nav links and login (no cart, no call now) */}
           {isMenuOpen && (
             <div className="lg:hidden py-6 border-t border-gray-200 bg-white">
               <div className="flex flex-col space-y-4">
@@ -302,7 +310,6 @@ const DynamicHeader = () => {
                 >
                   {isAdmin ? "Dashboard" : "Home"}
                 </Link>
-
                 {!isAdmin && (
                   <>
                     <Link
@@ -340,7 +347,6 @@ const DynamicHeader = () => {
                     </Link>
                   </>
                 )}
-
                 {isAdmin && (
                   <>
                     <Link
@@ -400,7 +406,6 @@ const DynamicHeader = () => {
                     </Link>
                   </>
                 )}
-
                 <Link
                   to="/about"
                   className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
@@ -423,62 +428,16 @@ const DynamicHeader = () => {
                 >
                   Contact
                 </Link>
-                <div className="flex items-center space-x-3 pt-2">
-                  {user ? (
-                    <>
-                      <Link
-                        to={isAdmin ? "/admin/dashboard" : "/profile"}
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="text-gray-700 hover:text-purple-700"
-                        >
-                          {isAdmin ? (
-                            <LayoutDashboard className="w-5 h-5" />
-                          ) : (
-                            <User className="w-5 h-5" />
-                          )}
-                        </Button>
-                      </Link>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={handleSignOut}
-                        className="text-gray-700 hover:text-purple-700 font-medium"
-                      >
-                        Logout
-                      </Button>
-                    </>
-                  ) : (
-                    <>
-                      <Link
-                        to="/auth/login"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="text-gray-700 hover:text-purple-700 font-medium"
-                        >
-                          Login
-                        </Button>
-                      </Link>
-                      <Link
-                        to="/auth/register"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        <Button
-                          size="sm"
-                          className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white px-6 py-2 font-semibold shadow-md"
-                        >
-                          Sign Up
-                        </Button>
-                      </Link>
-                    </>
-                  )}
-                </div>
+                {/* Login button in mobile menu if not logged in */}
+                {!user && (
+                  <Link
+                    to="/auth/login"
+                    className="font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           )}

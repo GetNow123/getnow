@@ -150,15 +150,15 @@ const StateServicePage = () => {
       </Helmet>
 
       {/* Breadcrumb */}
-      <div className="bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-4">
+      <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-rose-900 text-white border-b border-purple-400/30">
+        <div className="container mx-auto px-4 py-6">
           <Breadcrumb>
-            <BreadcrumbList>
+            <BreadcrumbList className="flex items-center gap-2">
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
                   <Link
                     to="/"
-                    className="flex items-center gap-2 text-gray-600 hover:text-onassist-primary transition-colors"
+                    className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors"
                   >
                     <Home className="w-4 h-4" />
                     Home
@@ -170,7 +170,7 @@ const StateServicePage = () => {
                 <BreadcrumbLink asChild>
                   <Link
                     to={`/${country}`}
-                    className="text-gray-600 hover:text-onassist-primary transition-colors"
+                    className="text-gray-200 hover:text-white transition-colors"
                   >
                     United States
                   </Link>
@@ -178,7 +178,7 @@ const StateServicePage = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="font-medium text-onassist-primary">
+                <BreadcrumbPage className="font-medium bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
                   {stateData.name}
                 </BreadcrumbPage>
               </BreadcrumbItem>
@@ -188,75 +188,86 @@ const StateServicePage = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-onassist-primary via-blue-600 to-purple-700 text-white overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+      <div className="relative bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-rose-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-rose-500/20 to-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-rose-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-4000"></div>
+        </div>
+        {/* Geometric Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }}
           ></div>
         </div>
-
-        <div className="relative container mx-auto px-4 py-20">
+        <div className="relative container mx-auto px-4 py-24">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-8">
-              <Navigation className="w-5 h-5" />
-              <span className="font-medium">
-                Serving All of {stateData.name}
-              </span>
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-full px-6 py-3 mb-8 border border-purple-400/30 text-sm font-medium">
+              <Navigation className="w-5 h-5 text-rose-300" />
+              Serving All of {stateData.name}
             </div>
-
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                Tech Support in
-              </span>
-              <br />
-              <span className="text-yellow-300">{stateData.name}</span>
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight mb-2 bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
+              Tech Support in {stateData.name}
             </h1>
-
-            <p className="text-xl md:text-2xl opacity-90 mb-10 leading-relaxed max-w-3xl mx-auto">
+            <div className="text-4xl font-extrabold text-white font-semibold mb-4">
+              Statewide Service
+            </div>
+            <p className="text-2xl md:text-3xl text-white font-semibold mb-12 leading-relaxed">
               Professional technology support throughout{" "}
-              <strong>{stateData.name}</strong>. Our certified technicians serve
-              all cities in {stateData.name} with guaranteed satisfaction.
+              <span className="text-purple-200 font-bold">
+                {stateData.name}
+              </span>
+              . Our certified technicians serve all cities in {stateData.name}{" "}
+              with guaranteed satisfaction.
             </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">Statewide</div>
-                <div className="text-sm opacity-80">
-                  Coverage in {stateData.name}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              <div className="bg-gradient-to-r from-purple-500/10 to-rose-500/10 rounded-3xl p-8 w-full flex-1">
+                <div className="text-4xl font-bold text-white mb-3">
+                  Statewide
+                </div>
+                <div className="text-lg text-purple-100 font-medium">
+                  Coverage
                 </div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">Same Day</div>
-                <div className="text-sm opacity-80">Service Available</div>
+              <div className="bg-gradient-to-r from-purple-500/10 to-rose-500/10 rounded-3xl p-8 w-full flex-1">
+                <div className="text-4xl font-bold text-white mb-3">
+                  Same Day
+                </div>
+                <div className="text-lg text-purple-100 font-medium">
+                  Service Available
+                </div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-                <div className="text-3xl font-bold mb-2">100%</div>
-                <div className="text-sm opacity-80">Satisfaction Rate</div>
+              <div className="bg-gradient-to-r from-purple-500/10 to-rose-500/10 rounded-3xl p-8 w-full flex-1">
+                <div className="text-4xl font-bold text-white mb-3">100%</div>
+                <div className="text-lg text-purple-100 font-medium">
+                  Satisfaction Rate
+                </div>
+              </div>
+              <div className="bg-gradient-to-r from-purple-500/10 to-rose-500/10 rounded-3xl p-8 w-full flex-1">
+                <div className="text-4xl font-bold text-white mb-3">24/7</div>
+                <div className="text-lg text-purple-100 font-medium">
+                  Support
+                </div>
               </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-8 justify-center">
               <Button
                 size="lg"
-                className="bg-white text-onassist-primary hover:bg-gray-100 font-semibold px-8 py-4 rounded-full shadow-xl"
-                onClick={() =>
-                  window.open(`tel:${siteConfig.contactPhone}`, "_self")
-                }
+                className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-semibold px-12 py-6 rounded-full shadow-2xl border border-purple-400/30 text-xl"
               >
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-6 h-6 mr-3" />
                 Call {siteConfig.contactPhone}
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-onassist-primary font-semibold px-8 py-4 rounded-full backdrop-blur-sm"
+                className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-semibold px-12 py-6 rounded-full shadow-2xl border border-purple-400/30 text-xl"
               >
-                <Search className="w-5 h-5 mr-2" />
-                <span className="text-blue-600">Find Local Service</span>
+                <Search className="w-6 h-6 mr-3" />
+                Find Local Service
               </Button>
             </div>
           </div>
@@ -267,7 +278,7 @@ const StateServicePage = () => {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-onassist-primary/10 text-onassist-primary rounded-full px-6 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-purple-500/10 text-purple-700 rounded-full px-6 py-2 mb-4">
               <MapPin className="w-5 h-5" />
               <span className="font-medium">Local Presence</span>
             </div>
@@ -307,7 +318,7 @@ const StateServicePage = () => {
                   <Link
                     key={city.name}
                     to={`/${country}/${state}/${city.slug}`}
-                    className="group inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-blue-50 to-onassist-primary/10 border border-onassist-primary/20 text-onassist-primary font-medium shadow-sm hover:bg-onassist-primary hover:text-white transition-all duration-200 text-base mb-2"
+                    className="group inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-purple-100 to-rose-100 text-purple-700 border border-purple-200 font-medium shadow-sm hover:bg-gradient-to-r from-purple-200 to-rose-200 hover:text-purple-900 transition-all duration-200 text-base mb-2"
                     style={{ minWidth: "120px" }}
                   >
                     <Building className="w-4 h-4 group-hover:text-yellow-300 transition-colors" />
@@ -375,15 +386,17 @@ const StateServicePage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 rounded-full px-6 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-rose-500/10 text-purple-700 rounded-full px-6 py-2 mb-4">
               <Zap className="w-5 h-5" />
               <span className="font-medium">Most Popular</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Top Services in{" "}
-              <span className="text-onassist-primary">{stateData.name}</span>
+            <h2 className="text-6xl md:text-8xl font-bold leading-tight mb-2 bg-gradient-to-r from-purple-700 via-purple-500 to-rose-600 bg-clip-text text-transparent">
+              Top Services
             </h2>
-            <p className="text-xl text-gray-600">
+            <div className="text-4xl font-extrabold text-gray-900 mb-4">
+              in {stateData.name}
+            </div>
+            <p className="text-2xl text-gray-700">
               Most requested tech solutions across {stateData.name}
             </p>
           </div>
@@ -398,8 +411,8 @@ const StateServicePage = () => {
                 >
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="bg-gradient-to-br from-onassist-primary to-blue-600 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                        <CategoryIcon className="w-8 h-8 text-white" />
+                      <div className="bg-gradient-to-br from-purple-100 to-rose-100 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <CategoryIcon className="w-8 h-8 text-purple-700" />
                       </div>
                       <h3 className="font-bold text-xl">{category.title}</h3>
                     </div>
@@ -439,14 +452,17 @@ const StateServicePage = () => {
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 rounded-full px-6 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-rose-500/10 text-purple-700 rounded-full px-6 py-2 mb-4">
               <Award className="w-5 h-5" />
               <span className="font-medium">Expert Team</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-6xl md:text-8xl font-bold leading-tight mb-2 bg-gradient-to-r from-purple-700 via-purple-500 to-rose-600 bg-clip-text text-transparent">
               Meet {stateData.name} Specialists
             </h2>
-            <p className="text-xl text-gray-600">
+            <div className="text-4xl font-extrabold text-gray-900 mb-4">
+              Specialists
+            </div>
+            <p className="text-2xl text-gray-700">
               Certified experts serving customers across {stateData.name}
             </p>
           </div>
@@ -494,15 +510,19 @@ const StateServicePage = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 rounded-full px-6 py-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-rose-500/10 text-purple-700 rounded-full px-6 py-2 mb-4">
               <Heart className="w-5 h-5" />
               <span className="font-medium">Customer Stories</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              What{" "}
-              <span className="text-onassist-primary">{stateData.name}</span>{" "}
-              Says About Us
+            <h2 className="text-6xl md:text-8xl font-bold leading-tight mb-2 bg-gradient-to-r from-purple-700 via-purple-500 to-rose-600 bg-clip-text text-transparent">
+              What {stateData.name} Says About Us
             </h2>
+            <div className="text-4xl font-extrabold text-gray-900 mb-4">
+              Testimonials
+            </div>
+            <p className="text-2xl text-gray-700">
+              See what our customers across {stateData.name} have to say
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -546,7 +566,7 @@ const StateServicePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-onassist-primary via-blue-600 to-purple-700 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
           <div
             className="absolute inset-0"
@@ -558,7 +578,7 @@ const StateServicePage = () => {
         <div className="relative container mx-auto px-4 flex justify-center">
           <div className="w-full max-w-2xl mx-auto">
             <div className="rounded-3xl shadow-xl border border-white/20 bg-gradient-to-br from-white/10 via-white/5 to-white/0 p-8 md:p-14 flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-onassist-primary/90 to-blue-600/80 text-white rounded-full px-6 py-2 mb-6 shadow-lg">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white rounded-full px-6 py-2 mb-6 shadow-lg">
                 <Zap className="w-6 h-6 text-yellow-300" />
                 <span className="font-semibold tracking-wide">
                   Get Help Fast
@@ -571,7 +591,7 @@ const StateServicePage = () => {
                 </span>
                 ?
               </h2>
-              <div className="h-1 w-16 bg-gradient-to-r from-onassist-primary to-blue-600 rounded-full my-4 mb-6 opacity-60"></div>
+              <div className="h-1 w-16 bg-gradient-to-r from-purple-600 to-rose-600 rounded-full my-4 mb-6 opacity-60"></div>
               <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
                 Get professional technology support anywhere in{" "}
                 <span className="font-bold text-yellow-200">
@@ -582,7 +602,7 @@ const StateServicePage = () => {
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-onassist-primary to-blue-600 hover:from-blue-600 hover:to-onassist-primary text-white font-bold px-8 py-5 rounded-full shadow-xl text-lg flex-1 max-w-xs w-full whitespace-normal break-words"
+                  className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-bold px-8 py-5 rounded-full shadow-xl text-lg flex-1 max-w-xs w-full whitespace-normal break-words"
                   style={{ minWidth: "0" }}
                   onClick={() =>
                     window.open(`tel:${siteConfig.contactPhone}`, "_self")
@@ -596,7 +616,7 @@ const StateServicePage = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-2 border-onassist-primary text-onassist-primary hover:bg-onassist-primary hover:text-white font-bold px-8 py-5 rounded-full text-lg flex-1 max-w-xs w-full whitespace-normal break-words bg-white/80 backdrop-blur-sm"
+                  className="border-2 border-purple-400/30 text-white hover:bg-purple-600 hover:to-rose-600 font-bold px-8 py-5 rounded-full text-lg flex-1 max-w-xs w-full whitespace-normal break-words bg-white/80 backdrop-blur-sm"
                   style={{ minWidth: "0" }}
                 >
                   <Clock className="w-6 h-6 mr-3 shrink-0" />

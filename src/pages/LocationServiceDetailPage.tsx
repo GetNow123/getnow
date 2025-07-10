@@ -256,57 +256,65 @@ const LocationServiceDetailPage = () => {
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
         {/* Breadcrumb */}
-        <div className="bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-40">
-          <div className="container mx-auto px-4 py-4">
+        <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-rose-900 text-white border-b border-purple-400/30 sticky top-0 z-40">
+          <div className="container mx-auto px-4 py-8">
             <Breadcrumb>
-              <BreadcrumbList>
+              <BreadcrumbList className="flex items-center gap-2">
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to="/"
-                      className="flex items-center gap-2 text-gray-600 hover:text-onassist-primary transition-all duration-300 hover:scale-105"
+                      className="flex items-center gap-2 text-gray-200 hover:text-white transition-colors"
                     >
                       <Home className="w-4 h-4" />
                       Home
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to={`/${country}`}
-                      className="text-gray-600 hover:text-onassist-primary transition-all duration-300 hover:scale-105"
+                      className="text-gray-200 hover:text-white transition-colors"
                     >
                       United States
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to={`/${country}/${state}`}
-                      className="text-gray-600 hover:text-onassist-primary transition-all duration-300 hover:scale-105"
+                      className="text-gray-200 hover:text-white transition-colors"
                     >
                       {stateData.name}
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
                       to={`/${country}/${state}/${city}`}
-                      className="text-gray-600 hover:text-onassist-primary transition-all duration-300 hover:scale-105"
+                      className="text-gray-200 hover:text-white transition-colors"
                     >
                       {cityData.name}
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                <BreadcrumbSeparator />
+                <BreadcrumbSeparator>
+                  <span className="mx-2 text-white font-bold">/</span>
+                </BreadcrumbSeparator>
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="font-medium text-onassist-primary">
+                  <BreadcrumbPage className="font-medium bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
                     {service.title}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -316,8 +324,15 @@ const LocationServiceDetailPage = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="py-20 bg-gradient-to-r from-onassist-primary via-blue-600 to-purple-700 text-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
+        <div className="py-24 relative bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white overflow-hidden">
+          {/* Animated Background Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-rose-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+            <div className="absolute top-40 right-20 w-96 h-96 bg-gradient-to-r from-rose-500/20 to-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-2000"></div>
+            <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-rose-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-4000"></div>
+          </div>
+          {/* Geometric Pattern Overlay */}
+          <div className="absolute inset-0 opacity-5">
             <div
               className="absolute inset-0"
               style={{
@@ -325,11 +340,6 @@ const LocationServiceDetailPage = () => {
               }}
             ></div>
           </div>
-
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-300/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
-
           <div className="container mx-auto px-4 relative">
             <Button
               onClick={handleGoBack}
@@ -339,7 +349,6 @@ const LocationServiceDetailPage = () => {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to {cityData.name}
             </Button>
-
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="flex items-center gap-4 mb-6">
@@ -347,10 +356,10 @@ const LocationServiceDetailPage = () => {
                     <Monitor className="w-10 h-10" />
                   </div>
                   <div>
-                    <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                    <h1 className="text-6xl md:text-8xl font-extrabold leading-tight bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                       {service.title}
                     </h1>
-                    <p className="text-xl text-blue-100 mt-2">
+                    <p className="text-4xl font-extrabold text-white font-semibold mt-2">
                       in {cityData.name}
                     </p>
                   </div>
@@ -361,14 +370,16 @@ const LocationServiceDetailPage = () => {
                     </Badge>
                   )}
                 </div>
-                <p className="text-xl opacity-95 mb-8 leading-relaxed">
-                  Professional {service.title} services in {cityData.name},{" "}
-                  {stateData.name}. Expert local technicians providing same-day
-                  service with guaranteed satisfaction.
+                <p className="text-2xl md:text-3xl text-white font-semibold mb-12 leading-relaxed">
+                  Professional {service.title} services in{" "}
+                  <span className="text-purple-200 font-bold">
+                    {cityData.name}, {stateData.name}
+                  </span>
+                  . Expert local technicians providing same-day service with
+                  guaranteed satisfaction.
                 </p>
-
                 <div className="flex items-center gap-8 text-lg">
-                  <div className="flex items-center gap-3 bg-white/20 px-4 py-3 rounded-xl backdrop-blur-md">
+                  <div className="flex items-center gap-3 bg-gradient-to-r from-purple-500/10 to-rose-500/10 px-4 py-3 rounded-xl backdrop-blur-md">
                     <Clock className="w-6 h-6" />
                     <span className="font-semibold">{service.duration}</span>
                   </div>
@@ -377,7 +388,6 @@ const LocationServiceDetailPage = () => {
                   </div>
                 </div>
               </div>
-
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                 <img
@@ -476,13 +486,13 @@ const LocationServiceDetailPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Service Details */}
             <div className="lg:col-span-2 space-y-8">
-              <Card className="shadow-2xl border-0 overflow-hidden bg-white">
+              <Card className="shadow-2xl border-0 overflow-hidden bg-white rounded-2xl">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+                    <div className="p-3 rounded-2xl bg-gradient-to-br from-purple-100 to-rose-100 text-purple-700">
                       <Monitor className="w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                       Service Overview in {cityData.name}
                     </h2>
                   </div>
@@ -546,7 +556,7 @@ const LocationServiceDetailPage = () => {
                     <div className="p-3 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 text-white">
                       <TrendingUp className="w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                       Why Choose Our {cityData.name} Service?
                     </h2>
                   </div>
@@ -622,7 +632,7 @@ const LocationServiceDetailPage = () => {
                     <div className="p-3 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
                       <Settings className="w-8 h-8" />
                     </div>
-                    <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                       What's Included
                     </h2>
                   </div>
@@ -687,7 +697,7 @@ const LocationServiceDetailPage = () => {
               <Card className="shadow-2xl border-0 sticky top-32 bg-white overflow-hidden">
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
-                    <div className="text-5xl font-bold bg-gradient-to-r from-onassist-primary to-blue-600 bg-clip-text text-transparent mb-3">
+                    <div className="text-5xl font-bold bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent mb-3">
                       ${service.price}
                     </div>
                     <div className="flex items-center justify-center gap-2 text-gray-600 bg-gray-50 rounded-lg px-4 py-2">
@@ -808,7 +818,7 @@ const LocationServiceDetailPage = () => {
         <div className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                 What {cityData.name} Customers Say
               </h2>
               <p className="text-xl text-gray-600">
@@ -881,7 +891,7 @@ const LocationServiceDetailPage = () => {
         <div className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-extrabold mb-4 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </h2>
               <p className="text-xl text-gray-600">
@@ -931,8 +941,8 @@ const LocationServiceDetailPage = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="py-16 bg-gradient-to-r from-onassist-primary via-blue-600 to-purple-700 text-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
+        <div className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5">
             <div
               className="absolute inset-0"
               style={{
@@ -940,9 +950,8 @@ const LocationServiceDetailPage = () => {
               }}
             ></div>
           </div>
-
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-purple-500 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent">
               Ready to Get Started?
             </h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
@@ -954,14 +963,14 @@ const LocationServiceDetailPage = () => {
               <Button
                 onClick={handleAddToCart}
                 size="lg"
-                className="bg-white text-onassist-primary hover:bg-gray-100 text-lg px-8 py-6 rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white font-semibold px-10 py-5 rounded-full shadow-2xl border border-purple-400/30 text-lg"
               >
                 <Calendar className="w-6 h-6 mr-3" />
                 Book {service.title} Now
               </Button>
               <div className="flex items-center gap-2 text-lg">
                 <Phone className="w-5 h-5" />
-                <span>or call 1-800-TECH-NOW</span>
+                <span>or call {siteConfig.contactPhone}</span>
               </div>
             </div>
           </div>
