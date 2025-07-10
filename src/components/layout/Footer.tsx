@@ -1,15 +1,20 @@
 import React from "react";
 import { useDynamicSiteConfig } from "@/hooks/useDynamicSiteConfig";
-import { Phone, Mail, MapPin, Clock, Star, Users } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Star,
+  Users,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useState } from "react";
-
-const GOLD = "#FFD700";
-const GREEN = "#00704A";
-const LIGHT_GREEN = "#E6F4EF";
 
 const Footer = () => {
   const { config } = useDynamicSiteConfig();
@@ -48,29 +53,46 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#00704A] text-white pt-20 pb-10">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white pt-20 pb-10 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Newsletter Subscription */}
-        <div className="max-w-2xl mx-auto mb-14">
+        <div className="max-w-2xl mx-auto mb-16">
           <div
-            className="bg-white rounded-2xl shadow-lg px-8 py-8 flex flex-col items-center text-center"
-            style={{ background: LIGHT_GREEN }}
+            className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl shadow-2xl border border-purple-400/30 px-10 py-10 flex flex-col items-center text-center"
+            style={{
+              boxShadow:
+                "0 25px 50px -12px rgba(168, 85, 247, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)",
+            }}
           >
-            <h4 className="text-2xl md:text-3xl font-extrabold mb-2 text-[#00704A]">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-full px-4 py-2 text-sm font-medium border border-purple-400/30 mb-4">
+              <Sparkles className="h-4 w-4 text-rose-300" />
+              Stay Updated
+            </div>
+            <h4 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
               Subscribe to our Newsletter
             </h4>
-            <p className="text-gray-700 mb-4 text-sm md:text-base">
+            <p className="text-gray-300 mb-6 text-base md:text-lg max-w-md">
               Get the latest updates, offers, and tech tips delivered straight
               to your inbox.
             </p>
             <form
-              className="flex flex-col sm:flex-row items-center gap-3 justify-center w-full"
+              className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full max-w-md"
               onSubmit={handleSubscribe}
             >
               <Input
                 type="email"
                 placeholder="Enter your email address"
-                className="bg-white border-gray-300 text-[#00704A] placeholder:text-gray-400 focus:ring-[#00704A] max-w-xs"
+                className="bg-white/10 backdrop-blur-md border-purple-400/30 text-white placeholder:text-gray-400 focus:ring-purple-500 focus:border-purple-400 flex-1"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +100,7 @@ const Footer = () => {
               />
               <Button
                 type="submit"
-                className="bg-[#00704A] hover:bg-[#005f3a] text-white px-6 py-2 rounded-md transition-colors font-semibold shadow-md"
+                className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white px-6 py-2 rounded-lg transition-all duration-300 font-semibold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 transform hover:-translate-y-1 border border-purple-400/30"
                 disabled={loading}
               >
                 {loading ? "Subscribing..." : "Subscribe"}
@@ -86,66 +108,82 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
-          <div className="space-y-5">
-            <h3 className="text-2xl font-extrabold text-white mb-1">
-              {config.name}
-            </h3>
-            <p className="text-white/80 text-sm">{config.description}</p>
-            <div className="flex items-center space-x-6 mt-4">
-              <div className="flex items-center space-x-2">
-                <Star className="w-5 h-5" style={{ color: GOLD }} />
-                <span className="text-base font-semibold">5.0 Rating</span>
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-rose-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/50">
+                <span className="text-white font-bold text-lg">OA</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Users className="w-5 h-5" style={{ color: GOLD }} />
-                <span className="text-base font-semibold">10k+ Customers</span>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
+                {config.name}
+              </h3>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed">
+              {config.description}
+            </p>
+            <div className="flex items-center space-x-6 mt-6">
+              <div className="flex items-center space-x-2 bg-black/20 backdrop-blur-md rounded-full px-4 py-2 border border-purple-400/30">
+                <Star className="w-5 h-5 text-rose-400" />
+                <span className="text-sm font-semibold">5.0 Rating</span>
+              </div>
+              <div className="flex items-center space-x-2 bg-black/20 backdrop-blur-md rounded-full px-4 py-2 border border-purple-400/30">
+                <Users className="w-5 h-5 text-purple-400" />
+                <span className="text-sm font-semibold">15k+ Customers</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-5">
-            <h4 className="text-lg font-bold text-white mb-2">Quick Links</h4>
-            <ul className="space-y-2 text-base">
+          <div className="space-y-6">
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div className="w-1 h-6 bg-gradient-to-r from-purple-500 to-rose-500 rounded-full"></div>
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
               <li>
                 <a
                   href="/services"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Our Services
                 </a>
               </li>
               <li>
                 <a
                   href="/about"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   About Us
                 </a>
               </li>
               <li>
                 <a
                   href="/contact"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Contact
                 </a>
               </li>
               <li>
                 <a
                   href="/faq"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   FAQ
                 </a>
               </li>
               <li>
                 <a
                   href="/partner"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Partner With Us
                 </a>
               </li>
@@ -153,48 +191,54 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div className="space-y-5">
-            <h4 className="text-lg font-bold text-white mb-2">
+          <div className="space-y-6">
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div className="w-1 h-6 bg-gradient-to-r from-rose-500 to-purple-500 rounded-full"></div>
               Popular Services
             </h4>
-            <ul className="space-y-2 text-base">
+            <ul className="space-y-3">
               <li>
                 <a
                   href="/services"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Computer Repair
                 </a>
               </li>
               <li>
                 <a
                   href="/services"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Smart Home Setup
                 </a>
               </li>
               <li>
                 <a
                   href="/services"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Network Installation
                 </a>
               </li>
               <li>
                 <a
                   href="/services"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Data Recovery
                 </a>
               </li>
               <li>
                 <a
                   href="/services"
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium"
+                  className="text-gray-300 hover:text-white transition-all duration-300 font-medium flex items-center gap-2 group"
                 >
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   Tech Consultation
                 </a>
               </li>
@@ -202,56 +246,78 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-5">
-            <h4 className="text-lg font-bold text-white mb-2">Contact Info</h4>
-            <div className="space-y-4 text-base">
+          <div className="space-y-6">
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <div className="w-1 h-6 bg-gradient-to-r from-purple-500 to-rose-500 rounded-full"></div>
+              Contact Info
+            </h4>
+            <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5" style={{ color: GOLD }} />
-                <span className="text-white font-medium">
-                  {config.contactPhone}
-                </span>
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-lg flex items-center justify-center border border-purple-400/30">
+                  <Phone className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Phone</p>
+                  <p className="text-white font-medium">
+                    {config.contactPhone}
+                  </p>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5" style={{ color: GOLD }} />
-                <span className="text-white font-medium">{config.email}</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 mt-0.5" style={{ color: GOLD }} />
-                <span className="text-white font-medium">{config.address}</span>
+                <div className="w-10 h-10 bg-gradient-to-r from-rose-500/20 to-purple-500/20 backdrop-blur-md rounded-lg flex items-center justify-center border border-rose-400/30">
+                  <Mail className="w-5 h-5 text-rose-400" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Email</p>
+                  <p className="text-white font-medium">{config.email}</p>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
-                <Clock className="w-5 h-5" style={{ color: GOLD }} />
-                <span className="text-white font-medium">
-                  {config.support.hours}
-                </span>
+                <div className="w-10 h-10 bg-gradient-to-r from-purple-500/20 to-rose-500/20 backdrop-blur-md rounded-lg flex items-center justify-center border border-purple-400/30">
+                  <MapPin className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Address</p>
+                  <p className="text-white font-medium">{config.address}</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-rose-500/20 to-purple-500/20 backdrop-blur-md rounded-lg flex items-center justify-center border border-rose-400/30">
+                  <Clock className="w-5 h-5 text-rose-400" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Hours</p>
+                  <p className="text-white font-medium">24/7 Support</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-14 pt-8">
+        {/* Bottom Section */}
+        <div className="border-t border-purple-400/30 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/70 text-sm">
-              © 2024 {config.name}. All rights reserved.
+            <p className="text-gray-400 text-sm">
+              © 2025 {config.name}. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex items-center space-x-6">
               <a
                 href="/privacy"
-                className="text-white/70 hover:text-[#FFD700] transition-colors"
+                className="text-gray-400 hover:text-white transition-colors text-sm"
               >
                 Privacy Policy
               </a>
               <a
                 href="/terms"
-                className="text-white/70 hover:text-[#FFD700] transition-colors"
+                className="text-gray-400 hover:text-white transition-colors text-sm"
               >
                 Terms of Service
               </a>
               <a
-                href="/returns"
-                className="text-white/70 hover:text-[#FFD700] transition-colors"
+                href="/sitemap"
+                className="text-gray-400 hover:text-white transition-colors text-sm"
               >
-                Returns Policy
+                Sitemap
               </a>
             </div>
           </div>

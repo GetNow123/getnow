@@ -93,17 +93,17 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="py-20 bg-[#F9F6EF]">
+    <section className="py-20 bg-gradient-to-b from-purple-50 to-rose-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#00704A] mb-3 inline-block">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-purple-800 mb-3 inline-block">
             How It Works
-            <span className="block w-20 h-1 bg-gradient-to-r from-[#CBA258] to-[#00704A] rounded-full mx-auto mt-3" />
+            <span className="block w-20 h-1 bg-gradient-to-r from-[#CBA258] to-purple-600 rounded-full mx-auto mt-3" />
           </h2>
           <p className="text-lg md:text-xl text-[#CBA258] font-semibold mb-2">
             Simple. Fast. Reliable.
           </p>
-          <p className="text-base text-[#1E3932] max-w-xl mx-auto">
+          <p className="text-base text-purple-700 max-w-xl mx-auto">
             We make getting tech support simple and stress-free. Our process is
             designed to get your tech problems solved quickly and effectively.
           </p>
@@ -112,26 +112,44 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative flex flex-col items-center text-center bg-white border-2 border-[#E8F5E9] rounded-2xl shadow-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#CBA258] group"
+              className="relative flex flex-col items-center text-center bg-white border-2 border-purple-100 rounded-2xl shadow-xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#CBA258] group"
             >
               {/* Step number in solid green circle */}
               <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-10">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#00704A] text-white text-xl font-bold shadow-lg border-4 border-white">
-                  {step.number}
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white text-xl font-bold shadow-lg border-4 border-white relative overflow-hidden">
+                  {/* Geometric Pattern Overlay */}
+                  <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                      }}
+                    ></div>
+                  </div>
+                  <span className="relative z-10">{step.number}</span>
                 </div>
               </div>
               {/* Icon in solid green circle */}
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#00704A] text-white mb-6 mt-6 shadow group-hover:shadow-lg transition-all">
-                {step.icon}
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white mb-6 mt-6 shadow group-hover:shadow-lg transition-all relative overflow-hidden">
+                {/* Geometric Pattern Overlay */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    }}
+                  ></div>
+                </div>
+                <span className="relative z-10">{step.icon}</span>
               </div>
-              <h3 className="text-xl font-bold text-[#00704A] mb-2 mt-2">
+              <h3 className="text-xl font-bold text-purple-800 mb-2 mt-2">
                 {step.title}
               </h3>
-              <p className="text-[#1E3932]">{step.description}</p>
+              <p className="text-purple-700">{step.description}</p>
               {/* Connector line (except for last item) */}
               {index < steps.length - 1 && (
                 <div
-                  className="hidden lg:block absolute top-1/2 right-0 w-8 h-1 bg-gradient-to-r from-[#E8F5E9] to-[#CBA258] opacity-70 z-0"
+                  className="hidden lg:block absolute top-1/2 right-0 w-8 h-1 bg-gradient-to-r from-purple-100 to-[#CBA258] opacity-70 z-0"
                   style={{ transform: "translateY(-50%)" }}
                 />
               )}

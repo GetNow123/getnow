@@ -23,12 +23,12 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-[#00704A]">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-3 inline-block">
             What Our Customers Say
-            <span className="block w-20 h-1 bg-gradient-to-r from-[#CBA258] to-white rounded-full mx-auto mt-3" />
+            <span className="block w-20 h-1 bg-gradient-to-r from-[#CBA258] to-purple-600 rounded-full mx-auto mt-3" />
           </h2>
           <p className="text-lg md:text-xl text-[#CBA258] font-semibold mb-2">
             Real Stories. Real Satisfaction.
@@ -43,7 +43,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <Card
               key={testimonial.id}
-              className="bg-white border-2 border-[#E8F5E9] rounded-2xl shadow-xl hover:shadow-[0_0_24px_4px_#CBA25855] hover:border-[#CBA258] transition-all duration-300 flex flex-col"
+              className="bg-white border-2 border-purple-100 rounded-2xl shadow-xl hover:shadow-[0_0_24px_4px_#CBA25855] hover:border-[#CBA258] transition-all duration-300 flex flex-col"
             >
               <CardContent className="p-8 flex flex-col h-full">
                 <div className="flex items-center mb-4">
@@ -55,7 +55,7 @@ const Testimonials = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#00704A] text-lg mb-0.5">
+                    <h4 className="font-bold text-purple-800 text-lg mb-0.5">
                       {testimonial.name}
                     </h4>
                     <p className="text-sm text-[#6B7280]">
@@ -68,7 +68,7 @@ const Testimonials = () => {
                   {renderStars(testimonial.rating)}
                 </div>
 
-                <p className="text-[#1E3932] mb-4 italic relative pl-6">
+                <p className="text-purple-700 mb-4 italic relative pl-6">
                   <span className="absolute left-0 top-0 text-[#CBA258] text-2xl font-bold">
                     “
                   </span>

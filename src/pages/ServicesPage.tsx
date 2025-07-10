@@ -165,14 +165,14 @@ const ServicesPage = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div className="bg-[#00704A] text-white py-20 shadow-xl relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#00704A] via-green-700/80 to-[#004d2c] opacity-90 z-0" />
+      <div className="bg-gradient-to-br from-white via-purple-50 to-rose-100 py-20 shadow-xl relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-rose-100 to-white opacity-80 z-0" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-purple-900 drop-shadow-lg">
               Our Tech Support Services
             </h1>
-            <p className="text-xl mb-8 opacity-95 leading-relaxed font-medium drop-shadow">
+            <p className="text-xl mb-8 opacity-95 leading-relaxed font-medium text-gray-700 drop-shadow">
               From computer issues to smart home setup, our tech experts are
               ready to solve your tech problems with professional, reliable
               solutions.
@@ -180,16 +180,16 @@ const ServicesPage = () => {
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               <Badge
                 variant="secondary"
-                className="text-lg px-6 py-3 bg-white/10 border-2 border-[#FFD700] text-white font-semibold shadow-lg flex items-center gap-2"
+                className="text-lg px-6 py-3 bg-white/60 border-2 border-[#CBA258] text-purple-900 font-semibold shadow-lg flex items-center gap-2"
               >
-                <Layers className="w-5 h-5 mr-2 text-[#FFD700]" />
+                <Layers className="w-5 h-5 mr-2 text-[#CBA258]" />
                 {filteredServices.length} Services Available
               </Badge>
               <Badge
                 variant="secondary"
-                className="text-lg px-6 py-3 bg-white/10 border-2 border-[#FFD700] text-white font-semibold shadow-lg flex items-center gap-2"
+                className="text-lg px-6 py-3 bg-white/60 border-2 border-[#CBA258] text-purple-900 font-semibold shadow-lg flex items-center gap-2"
               >
-                <span className="inline-block w-4 h-4 rounded-full bg-[#FFD700] mr-2" />
+                <span className="inline-block w-4 h-4 rounded-full bg-[#CBA258] mr-2" />
                 {categoriesWithServices?.length || 0} Categories
               </Badge>
             </div>

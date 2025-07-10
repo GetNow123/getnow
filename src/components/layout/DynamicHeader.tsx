@@ -50,151 +50,154 @@ const DynamicHeader = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#FFFFFF]/95 backdrop-blur-sm shadow-lg"
-            : "bg-[#FFFFFF]"
+            ? "bg-white shadow-md border-b border-gray-200"
+            : "bg-white"
         }`}
       >
         <nav className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link
               to={isAdmin ? "/admin/dashboard" : "/"}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-3 group"
             >
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ background: "#00704A" }}
-              >
-                <span className="text-white font-bold text-2xl">O</span>
+              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-rose-600 rounded-xl flex items-center justify-center shadow-md">
+                <span className="text-white font-bold text-lg">O</span>
               </div>
-              <span className="text-xl font-bold" style={{ color: "#1E3932" }}>
+              <span className="text-2xl font-bold text-gray-900">
                 {siteConfig.name}
               </span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              <Link 
-                to={isAdmin ? "/admin/dashboard" : "/"} 
-                className={`font-medium transition-colors hover:text-[#00704A] ${
+              <Link
+                to={isAdmin ? "/admin/dashboard" : "/"}
+                className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                   isActive(isAdmin ? "/admin/dashboard" : "/")
-                    ? "text-[#00704A]"
-                    : "text-[#1E3932]"
+                    ? "text-purple-700 underline underline-offset-4"
+                    : "text-gray-900"
                 }`}
               >
                 {isAdmin ? "Dashboard" : "Home"}
               </Link>
-              
+
               {!isAdmin && (
                 <>
                   <div className="relative">
-                    <button 
+                    <button
                       onClick={toggleServicesDropdown}
-                      className={`flex items-center gap-1 font-medium transition-colors hover:text-[#00704A] ${
+                      className={`flex items-center gap-2 font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                         location.pathname.startsWith("/services")
-                          ? "text-[#00704A]"
-                          : "text-[#1E3932]"
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
                       }`}
                     >
                       Services
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform ${
+                        className={`h-4 w-4 transition-transform duration-200 ${
                           isServicesDropdownOpen ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                   </div>
-                  
-                  <Link 
-                    to="/membership" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
+
+                  <Link
+                    to="/membership"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                       isActive("/membership")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Membership
                   </Link>
-                  
-                  <Link 
-                    to="/partner" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/partner") ? "text-[#00704A]" : "text-[#1E3932]"
+
+                  <Link
+                    to="/partner"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
+                      isActive("/partner")
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Partner With Us
                   </Link>
                 </>
               )}
-              
+
               {isAdmin && (
                 <>
-                  <Link 
-                    to="/admin/categories" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
+                  <Link
+                    to="/admin/categories"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                       isActive("/admin/categories")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Categories
                   </Link>
-                  <Link 
-                    to="/admin/services" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
+                  <Link
+                    to="/admin/services"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                       isActive("/admin/services")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Services
                   </Link>
-                  <Link 
-                    to="/admin/users" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
+                  <Link
+                    to="/admin/users"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                       isActive("/admin/users")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Users
                   </Link>
-                  <Link 
-                    to="/admin/orders" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
+                  <Link
+                    to="/admin/orders"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                       isActive("/admin/orders")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Orders
                   </Link>
-                  <Link 
-                    to="/admin/contacts" 
-                    className={`font-medium transition-colors hover:text-[#00704A] ${
+                  <Link
+                    to="/admin/contacts"
+                    className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
                       isActive("/admin/contacts")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
+                        ? "text-purple-700 underline underline-offset-4"
+                        : "text-gray-900"
                     }`}
                   >
                     Contacts
                   </Link>
                 </>
               )}
-              
-              <Link 
-                to="/about" 
-                className={`font-medium transition-colors hover:text-[#00704A] ${
-                  isActive("/about") ? "text-[#00704A]" : "text-[#1E3932]"
+
+              <Link
+                to="/about"
+                className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
+                  isActive("/about")
+                    ? "text-purple-700 underline underline-offset-4"
+                    : "text-gray-900"
                 }`}
               >
                 About
               </Link>
-              
-              <Link 
-                to="/contact" 
-                className={`font-medium transition-colors hover:text-[#00704A] ${
-                  isActive("/contact") ? "text-[#00704A]" : "text-[#1E3932]"
+
+              <Link
+                to="/contact"
+                className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-1 ${
+                  isActive("/contact")
+                    ? "text-purple-700 underline underline-offset-4"
+                    : "text-gray-900"
                 }`}
               >
                 Contact
@@ -203,251 +206,292 @@ const DynamicHeader = () => {
 
             {/* Right Side Actions */}
             <div className="flex items-center space-x-4">
-              {/* Cart - Only show for non-admin users */}
+              {/* Cart */}
               {!isAdmin && (
-                <Link
-                  to="/cart"
-                  className="relative p-2 text-[#1E3932] hover:text-[#00704A] transition-colors"
-                >
-                  <ShoppingCart className="h-6 w-6" />
-                  {totalItems > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-[#00704A] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">
-                      {totalItems}
-                    </span>
-                  )}
+                <Link to="/cart" className="relative group">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="relative text-gray-700 hover:text-purple-700"
+                  >
+                    <ShoppingCart className="w-5 h-5" />
+                    {totalItems > 0 && (
+                      <span className="absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                        {totalItems}
+                      </span>
+                    )}
+                  </Button>
                 </Link>
               )}
 
               {/* User Menu */}
               {user ? (
-                <div className="hidden lg:flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <Link to={isAdmin ? "/admin/dashboard" : "/profile"}>
                     <Button
                       variant="ghost"
-                      size="sm"
-                      className="flex items-center gap-2"
+                      size="icon"
+                      className="text-gray-700 hover:text-purple-700"
                     >
                       {isAdmin ? (
-                        <LayoutDashboard className="h-4 w-4" />
+                        <LayoutDashboard className="w-5 h-5" />
                       ) : (
-                        <User className="h-4 w-4" />
+                        <User className="w-5 h-5" />
                       )}
-                      {isAdmin ? "Dashboard" : "Profile"}
                     </Button>
                   </Link>
-                  <Button onClick={handleSignOut} variant="outline" size="sm">
-                    Sign Out
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleSignOut}
+                    className="text-gray-700 hover:text-purple-700 font-medium"
+                  >
+                    Logout
                   </Button>
                 </div>
               ) : (
-                <div className="hidden lg:flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <Link to="/auth/login">
-                    <Button variant="ghost" size="sm">
-                      Sign In
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-gray-700 hover:text-purple-700 font-medium"
+                    >
+                      Login
                     </Button>
                   </Link>
                   <Link to="/auth/register">
-                    <Button size="sm">Get Started</Button>
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white px-6 py-2 font-semibold shadow-md"
+                    >
+                      Sign Up
+                    </Button>
                   </Link>
                 </div>
               )}
 
               {/* Mobile Menu Button */}
-              <button
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden text-gray-700 hover:text-purple-700"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 text-[#1E3932] hover:text-[#00704A] transition-colors"
               >
                 {isMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="w-5 h-5" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="w-5 h-5" />
                 )}
-              </button>
+              </Button>
             </div>
           </div>
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="lg:hidden bg-[#FFFFFF] border-t border-[#E0E0E0] py-4 space-y-4">
-              <Link 
-                to={isAdmin ? "/admin/dashboard" : "/"} 
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                  isActive(isAdmin ? "/admin/dashboard" : "/")
-                    ? "text-[#00704A]"
-                    : "text-[#1E3932]"
-                }`}
-              >
-                {isAdmin ? "Dashboard" : "Home"}
-              </Link>
-              
-              {!isAdmin && (
-                <>
-                  <Link 
-                    to="/services" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      location.pathname.startsWith("/services")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Services
-                  </Link>
-                  
-                  <Link 
-                    to="/membership" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/membership")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Membership
-                  </Link>
-                  
-                  <Link 
-                    to="/partner" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/partner") ? "text-[#00704A]" : "text-[#1E3932]"
-                    }`}
-                  >
-                    Partner With Us
-                  </Link>
-                </>
-              )}
-              
-              {isAdmin && (
-                <>
-                  <Link 
-                    to="/admin/categories" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/admin/categories")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Categories
-                  </Link>
-                  <Link 
-                    to="/admin/services" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/admin/services")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Services
-                  </Link>
-                  <Link 
-                    to="/admin/users" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/admin/users")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Users
-                  </Link>
-                  <Link 
-                    to="/admin/orders" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/admin/orders")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Orders
-                  </Link>
-                  <Link 
-                    to="/admin/contacts" 
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                      isActive("/admin/contacts")
-                        ? "text-[#00704A]"
-                        : "text-[#1E3932]"
-                    }`}
-                  >
-                    Contacts
-                  </Link>
-                </>
-              )}
-              
-              <Link 
-                to="/about" 
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                  isActive("/about") ? "text-[#00704A]" : "text-[#1E3932]"
-                }`}
-              >
-                About
-              </Link>
-              <Link 
-                to="/contact" 
-                onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 font-medium transition-colors hover:text-[#00704A] ${
-                  isActive("/contact") ? "text-[#00704A]" : "text-[#1E3932]"
-                }`}
-              >
-                Contact
-              </Link>
-              
-              <div className="border-t border-[#E0E0E0] pt-4">
-                {user ? (
-                  <div className="space-y-2">
+            <div className="lg:hidden py-6 border-t border-gray-200 bg-white">
+              <div className="flex flex-col space-y-4">
+                <Link
+                  to={isAdmin ? "/admin/dashboard" : "/"}
+                  className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                    isActive(isAdmin ? "/admin/dashboard" : "/")
+                      ? "text-purple-700 underline underline-offset-4"
+                      : "text-gray-900"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {isAdmin ? "Dashboard" : "Home"}
+                </Link>
+
+                {!isAdmin && (
+                  <>
                     <Link
-                      to={isAdmin ? "/admin/dashboard" : "/profile"}
+                      to="/services"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        location.pathname.startsWith("/services")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <Button variant="ghost" className="w-full justify-start">
-                        {isAdmin ? (
-                          <LayoutDashboard className="h-4 w-4 mr-2" />
-                        ) : (
-                          <User className="h-4 w-4 mr-2" />
-                        )}
-                        {isAdmin ? "Dashboard" : "Profile"}
-                      </Button>
-                    </Link>
-                    <Button
-                      onClick={handleSignOut}
-                      variant="outline"
-                      className="w-full"
-                    >
-                      Sign Out
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="space-y-2">
-                    <Link to="/auth/login" onClick={() => setIsMenuOpen(false)}>
-                      <Button variant="ghost" className="w-full">
-                        Sign In
-                      </Button>
+                      Services
                     </Link>
                     <Link
-                      to="/auth/register"
+                      to="/membership"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/membership")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <Button className="w-full">Get Started</Button>
+                      Membership
                     </Link>
-                  </div>
+                    <Link
+                      to="/partner"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/partner")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Partner With Us
+                    </Link>
+                  </>
                 )}
+
+                {isAdmin && (
+                  <>
+                    <Link
+                      to="/admin/categories"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/admin/categories")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Categories
+                    </Link>
+                    <Link
+                      to="/admin/services"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/admin/services")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Services
+                    </Link>
+                    <Link
+                      to="/admin/users"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/admin/users")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Users
+                    </Link>
+                    <Link
+                      to="/admin/orders"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/admin/orders")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Orders
+                    </Link>
+                    <Link
+                      to="/admin/contacts"
+                      className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                        isActive("/admin/contacts")
+                          ? "text-purple-700 underline underline-offset-4"
+                          : "text-gray-900"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Contacts
+                    </Link>
+                  </>
+                )}
+
+                <Link
+                  to="/about"
+                  className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                    isActive("/about")
+                      ? "text-purple-700 underline underline-offset-4"
+                      : "text-gray-900"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  to="/contact"
+                  className={`font-medium transition-all duration-200 hover:text-purple-700 px-2 py-2 rounded ${
+                    isActive("/contact")
+                      ? "text-purple-700 underline underline-offset-4"
+                      : "text-gray-900"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+                <div className="flex items-center space-x-3 pt-2">
+                  {user ? (
+                    <>
+                      <Link
+                        to={isAdmin ? "/admin/dashboard" : "/profile"}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="text-gray-700 hover:text-purple-700"
+                        >
+                          {isAdmin ? (
+                            <LayoutDashboard className="w-5 h-5" />
+                          ) : (
+                            <User className="w-5 h-5" />
+                          )}
+                        </Button>
+                      </Link>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={handleSignOut}
+                        className="text-gray-700 hover:text-purple-700 font-medium"
+                      >
+                        Logout
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        to="/auth/login"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-gray-700 hover:text-purple-700 font-medium"
+                        >
+                          Login
+                        </Button>
+                      </Link>
+                      <Link
+                        to="/auth/register"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <Button
+                          size="sm"
+                          className="bg-gradient-to-r from-purple-600 to-rose-600 hover:from-purple-700 hover:to-rose-700 text-white px-6 py-2 font-semibold shadow-md"
+                        >
+                          Sign Up
+                        </Button>
+                      </Link>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           )}
         </nav>
       </header>
 
-      {/* Services Mega Menu - positioned outside header for full width */}
-      <ServicesMegaMenu
-        isOpen={isServicesDropdownOpen}
-        onClose={closeDropdown}
-      />
+      {/* Services Mega Menu */}
+      {isServicesDropdownOpen && !isAdmin && (
+        <ServicesMegaMenu
+          isOpen={isServicesDropdownOpen}
+          onClose={closeDropdown}
+        />
+      )}
     </>
   );
 };

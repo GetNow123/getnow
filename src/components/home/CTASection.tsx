@@ -5,23 +5,25 @@ import { Phone, Clock, Shield, Star, ArrowRight, Users } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { useDynamicSiteConfig } from "@/hooks/useDynamicSiteConfig";
 
-const GOLD = "#FFD700";
-const GREEN = "#00704A";
-const LIGHT_GREEN = "#E6F4EF";
+const GOLD = "#CBA258";
+const PURPLE = "#8B5CF6";
+const ROSE = "#F59E0B";
+const LIGHT_PURPLE = "#F3E8FF";
 
 const CTASection = () => {
   const { config, isLoading } = useDynamicSiteConfig();
 
   return (
-    <section className="relative py-20 bg-[#00704A] overflow-hidden">
-      {/* Decorative Gold Gradient Overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(120deg, rgba(255,215,0,0.08) 0%, rgba(0,112,74,0.0) 60%)",
-        }}
-      ></div>
+    <section className="relative py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-rose-900 text-white overflow-hidden">
+      {/* Geometric Pattern Overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+      </div>
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse"></div>
@@ -34,7 +36,7 @@ const CTASection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
             Need Tech Support
-            <span className="block text-transparent bg-gradient-to-r from-[#FFD700] to-yellow-400 bg-clip-text font-extrabold">
+            <span className="block text-transparent bg-gradient-to-r from-[#CBA258] to-purple-200 bg-clip-text font-extrabold">
               Right Now?
             </span>
           </h2>
@@ -48,58 +50,58 @@ const CTASection = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           <div
-            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-[#E6F4EF] flex flex-col items-center"
-            style={{ background: LIGHT_GREEN }}
+            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-purple-100 flex flex-col items-center"
+            style={{ background: LIGHT_PURPLE }}
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 bg-[#00704A] rounded-full mb-4 shadow-lg">
+            <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-purple-600 to-rose-400 rounded-full mb-4 shadow-lg">
               <Clock className="h-7 w-7" style={{ color: GOLD }} />
             </div>
-            <div className="text-2xl font-bold text-[#00704A] mb-1">
+            <div className="text-2xl font-bold text-purple-800 mb-1">
               {config.response_time_stat}
             </div>
-            <div className="text-[#00704A] text-sm font-semibold">
+            <div className="text-purple-700 text-sm font-semibold">
               Response Time
             </div>
           </div>
           <div
-            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-[#E6F4EF] flex flex-col items-center"
-            style={{ background: LIGHT_GREEN }}
+            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-purple-100 flex flex-col items-center"
+            style={{ background: LIGHT_PURPLE }}
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 bg-[#00704A] rounded-full mb-4 shadow-lg">
+            <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-purple-600 to-rose-400 rounded-full mb-4 shadow-lg">
               <Star className="h-7 w-7" style={{ color: GOLD }} />
             </div>
-            <div className="text-2xl font-bold text-[#00704A] mb-1">
+            <div className="text-2xl font-bold text-purple-800 mb-1">
               {config.rating_stat}
             </div>
-            <div className="text-[#00704A] text-sm font-semibold">
+            <div className="text-purple-700 text-sm font-semibold">
               Customer Rating
             </div>
           </div>
           <div
-            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-[#E6F4EF] flex flex-col items-center"
-            style={{ background: LIGHT_GREEN }}
+            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-purple-100 flex flex-col items-center"
+            style={{ background: LIGHT_PURPLE }}
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 bg-[#00704A] rounded-full mb-4 shadow-lg">
+            <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-purple-600 to-rose-400 rounded-full mb-4 shadow-lg">
               <Shield className="h-7 w-7" style={{ color: GOLD }} />
             </div>
-            <div className="text-2xl font-bold text-[#00704A] mb-1">
+            <div className="text-2xl font-bold text-purple-800 mb-1">
               {config.satisfaction_stat}
             </div>
-            <div className="text-[#00704A] text-sm font-semibold">
+            <div className="text-purple-700 text-sm font-semibold">
               Satisfaction
             </div>
           </div>
           <div
-            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-[#E6F4EF] flex flex-col items-center"
-            style={{ background: LIGHT_GREEN }}
+            className="text-center p-7 bg-white rounded-2xl shadow-xl border-2 border-purple-100 flex flex-col items-center"
+            style={{ background: LIGHT_PURPLE }}
           >
-            <div className="inline-flex items-center justify-center w-14 h-14 bg-[#00704A] rounded-full mb-4 shadow-lg">
+            <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-purple-600 to-rose-400 rounded-full mb-4 shadow-lg">
               <Users className="h-7 w-7" style={{ color: GOLD }} />
             </div>
-            <div className="text-2xl font-bold text-[#00704A] mb-1">
+            <div className="text-2xl font-bold text-purple-800 mb-1">
               {config.happy_customers_stat}
             </div>
-            <div className="text-[#00704A] text-sm font-semibold">
+            <div className="text-purple-700 text-sm font-semibold">
               Happy Customers
             </div>
           </div>
@@ -114,7 +116,7 @@ const CTASection = () => {
             >
               <Button
                 size="lg"
-                className="bg-[#00704A] hover:bg-[#005f3a] text-white font-semibold px-8 py-4 rounded-2xl shadow-xl border-2 border-[#FFD700] transition-all duration-300 flex items-center"
+                className="bg-gradient-to-r from-purple-600 to-rose-400 hover:from-purple-700 hover:to-rose-500 text-white font-semibold px-8 py-4 rounded-2xl shadow-xl border-2 border-[#CBA258] transition-all duration-300 flex items-center"
               >
                 <Phone
                   className="mr-3 h-5 w-5 animate-pulse"
@@ -134,7 +136,7 @@ const CTASection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white border-2 border-[#FFD700] text-[#00704A] hover:bg-[#FFD700] hover:text-[#00704A] font-semibold px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 flex items-center"
+                className="bg-white border-2 border-[#CBA258] text-purple-700 hover:bg-[#CBA258] hover:text-white font-semibold px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 flex items-center"
               >
                 Get Free Quote
                 <ArrowRight
@@ -157,15 +159,15 @@ const CTASection = () => {
             Trusted by thousands of customers
           </p>
           <div className="flex flex-wrap justify-center items-center gap-4 opacity-90">
-            <div className="px-5 py-2 rounded-full bg-white text-[#00704A] font-bold shadow border border-[#FFD700] flex items-center gap-2">
+            <div className="px-5 py-2 rounded-full bg-white text-purple-700 font-bold shadow border border-[#CBA258] flex items-center gap-2">
               <Star className="h-5 w-5" style={{ color: GOLD }} /> CompTIA
               Certified
             </div>
-            <div className="px-5 py-2 rounded-full bg-white text-[#00704A] font-bold shadow border border-[#FFD700] flex items-center gap-2">
+            <div className="px-5 py-2 rounded-full bg-white text-purple-700 font-bold shadow border border-[#CBA258] flex items-center gap-2">
               <Shield className="h-5 w-5" style={{ color: GOLD }} /> BBB A+
               Rating
             </div>
-            <div className="px-5 py-2 rounded-full bg-white text-[#00704A] font-bold shadow border border-[#FFD700] flex items-center gap-2">
+            <div className="px-5 py-2 rounded-full bg-white text-purple-700 font-bold shadow border border-[#CBA258] flex items-center gap-2">
               <Users className="h-5 w-5" style={{ color: GOLD }} /> Fully
               Insured
             </div>
