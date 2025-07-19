@@ -14,6 +14,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useCart } from "@/contexts/CartContext";
 import { siteConfig } from "@/config/site";
 import ServicesDropdown from "./ServicesDropdown";
+import { useDynamicSiteConfig } from "@/hooks/useDynamicSiteConfig";
 
 const Header = () => {
   const { user, signOut } = useAuth();
@@ -21,6 +22,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const { config } = useDynamicSiteConfig();
 
   const handleLogout = async () => {
     await signOut();
@@ -28,7 +30,7 @@ const Header = () => {
   };
 
   const handleCallNow = () => {
-    window.open(`tel:${siteConfig.contactPhone}`, "_self");
+    window.open(`tel:${config.contactPhone}`, "_self");
   };
 
   const closeDropdown = () => {
@@ -42,10 +44,10 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-rose-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/50 group-hover:shadow-purple-500/75 transition-all duration-300 transform group-hover:scale-110">
-              <span className="text-white font-bold text-lg">OA</span>
+              <span className="text-white font-bold text-lg">G</span>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-white via-purple-100 to-rose-100 bg-clip-text text-transparent">
-              {siteConfig.name}
+              {config.name}
             </span>
           </Link>
 
@@ -172,7 +174,7 @@ const Header = () => {
               onClick={handleCallNow}
             >
               <Phone className="w-4 h-4" />
-              <span className="font-semibold">{siteConfig.contactPhone}</span>
+              <span className="font-semibold">{config.contactPhone}</span>
             </Button>
 
             {/* Mobile Menu Button */}
@@ -249,7 +251,7 @@ const Header = () => {
                 }}
               >
                 <Phone className="w-4 h-4" />
-                {siteConfig.contactPhone}
+                {config.contactPhone}
               </Button>
             </div>
           </div>

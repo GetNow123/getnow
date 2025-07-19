@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { fetchSiteSettings } from "./useSiteSettings";
 import { siteConfig } from "@/config/site";
@@ -9,6 +8,8 @@ export const useDynamicSiteConfig = () => {
     queryFn: fetchSiteSettings,
     refetchOnWindowFocus: false,
   });
+
+  console.log(dbSettings);
 
   // Merge database settings with static config, preferring database values
   const dynamicConfig = {
@@ -25,14 +26,11 @@ export const useDynamicSiteConfig = () => {
       dbSettings?.satisfaction_stat || siteConfig.satisfaction_stat,
     happy_customers_stat:
       dbSettings?.happy_customers_stat || siteConfig.happy_customers_stat,
-    certified_experts_stat:
-      dbSettings?.certified_experts_stat || "50+",
+    certified_experts_stat: dbSettings?.certified_experts_stat || "50+",
     customer_satisfaction_stat:
       dbSettings?.customer_satisfaction_stat || "4.9/5",
-    cities_covered_stat:
-      dbSettings?.cities_covered_stat || "100+",
-    service_warranty_days:
-      dbSettings?.service_warranty_days || "30",
+    cities_covered_stat: dbSettings?.cities_covered_stat || "100+",
+    service_warranty_days: dbSettings?.service_warranty_days || "30",
     satisfaction_guarantee_percent:
       dbSettings?.satisfaction_guarantee_percent || "100",
     followup_support_text:
